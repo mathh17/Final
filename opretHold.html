@@ -1,34 +1,228 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700" rel="stylesheet">
+    <script src="js/js.js"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+
 </head>
 
 <body>
     <header>
-        <div class="large-12 hide-for-small topmenu">
-                <a href="index.html">FORSIDE</a>
-                <a href="booking.html">BOOKING</a>
-                <a href="medlem.html">MEDLEMSKAB</a>
-                <div class="team">
-                    <a href="opretHold.html">OPRET HOLD</a>
-                </div>
+        <div class="large-12 topmenu">
+            <a href="index.html">FORSIDE</a>
+            <a href="booking.html">BOOKING</a>
+            <a href="medlem.html">MEDLEMSKAB</a>
+            <div class="team">
+                <a href="opretHold.html">OPRET HOLD</a>
+            </div>
         </div>
 
-        <div class="small-12 hide-for-medium-up">
-            <select>
-                    <option href="index.html">FORSIDE</option>
-                    <option href="booking.html" >BOOKING</option>
-                    <option href="medlem.html" >MEDLEMSKAB</option>
-                    <option href="opretHold.html" >OPRET HOLD</option>
-                    <option href="" >SPROG</option>
+        <br>
 
-            </select>
-        </div>
 
     </header>
+
+    <form>
+        HOLDNAVN:<br>
+        <input type="text" name="holdnavn" id="holdnavn"><br> TRÆNER:
+        <br>
+        <select>
+        <option id="soeren">Søren</option>
+        <option id="katrine">Katrine</option>
+        <option id="anders">Anders</option>
+        </select>
+        <input type="text" name="lastname" id="lastname"> SAL:
+        <br>
+        <input type="text" name="lokation" id="lokation"> <br> Max. Deltagere
+        <input type="text" name="maxDeltagere" id="maxDeltagere"> <br>
+
+
+    </form>
+    STARTIME
+    <select name="starTime" id="startHours">
+    </select> :
+    <select name="startTime" id="startMinutes">
+    </select> <br> ENDTIME
+    <select name="endTime" id="endHours">
+    </select> :
+    <select name="endTime" id="endMinutes">
+    </select>
+    <br> DURATION :
+    <br>
+    <button id="opretHold">Opret Hold</button>
+
 </body>
+
+<script>
+    console.log(startValue);
+
+    for (var i = 0; i <= 23; i++) {
+        let select = document.getElementById('startHours');
+        var opt = document.createElement('option');
+        var hours = i;
+        opt.value += i;
+        console.log(opt.value);
+        if (hours.toString().length == 1) {
+            opt.innerHTML = '0' + hours;
+        } else {
+            opt.innerHTML = hours;
+
+        }
+        select.appendChild(opt);
+    }
+    console.log(opt.value);
+    var e = document.getElementById("startHours");
+    var startValue = e.options[e.selectedIndex].value;
+    var startTid = e.options[e.selectedIndex].text;
+    console.log(startValue);
+    console.log(startTid);
+
+    document.getElementById("opretHold").addEventListener("click", function() {
+        localStorage.setItem('startHour', startTid);
+
+    });
+
+    for (var i = 0; i <= 60; i += 5) {
+        let select = document.getElementById('startMinutes');
+        let opt = document.createElement('option');
+        let minutes = i;
+        if (minutes.toString().length == 1) {
+            opt.innerHTML = '0' + minutes;
+        } else {
+            opt.innerHTML = minutes;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+    for (var i = 0; i <= 23; i++) {
+        let select = document.getElementById('endHours');
+        let opt = document.createElement('option');
+        let hours = i;
+        if (hours.toString().length == 1) {
+            opt.innerHTML = '0' + hours;
+        } else {
+            opt.innerHTML = hours;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+    for (var i = 0; i <= 60; i += 5) {
+        let select = document.getElementById('endMinutes');
+        let opt = document.createElement('option');
+        let minutes = i;
+        if (minutes.toString().length == 1) {
+            opt.innerHTML = '0' + minutes;
+        } else {
+            opt.innerHTML = minutes;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+
+
+    calculateTime();
+
+    function calculateTime() {
+        console.log('oaudw');
+        var starTime = document.getElementById('startHours').value;
+        console.log(starTime);
+    }
+
+
+    /*var select = document.getElementById('selector');
+    var hours, minutes;
+    for (var i = 60; i <= 1440; i += 15) {
+        var opt = document.createElement('option');
+        /*hours = Math.floor(i / 60);
+
+        minutes = i % 24;
+
+        if (minutes < 10) {
+            minutes = '0' + minutes; // adding leading zero
+        }
+       hours = i/60;
+        /*if (hours === 0) {
+            hours = 12;
+        }
+        console.log(hours);
+        console.log(minutes);
+        /*opt.value = i;
+        opt.innerHTML = hours;
+        select.appendChild(opt);
+    }
+        */
+
+
+    /*var select = document.getElementById('selector');
+    var hours, minutes;
+    var opt = document.createElement('option');
+    for (var i = 420; i <= 1320; i += 15) {
+        hours = Math.floor(i / 60);
+        minutes = i % 60;
+        if (minutes < 10) {
+            minutes = '0' + minutes; // adding leading zero
+        }
+        hours = hours % 12;
+        if (hours === 0) {
+            hours = 12;
+        }
+        select.appendChild(opt)
+            .attr('value', i)
+            .text(hours + ':' + minutes + ' ' + ampm));
+    }*/
+
+
+    /*function populate(selector) {
+                var select = $(select);
+                var hours, minutes;
+                for (var i = 420; i <= 1320; i += 15) {
+                    hours = Math.floor(i / 60);
+                    minutes = i % 60;
+                    if (minutes < 10) {
+                        minutes = '0' + minutes; // adding leading zero
+                    }
+                    hours = hours % 12;
+                    if (hours === 0) {
+                        hours = 12;
+                    }
+                    select.append($('<option></option>')
+                        .attr('value', i)
+                        .text(hours + ':' + minutes + ' ' + ampm));
+                }
+            }
+
+            populate('#timeSelect');*/
+    /*________________________*/
+
+    /*function getTime(from, to) {
+        var select = '<select name="time">';
+        var ampm = 'AM';
+        for (var hour = from; hour >= to; hour++) {
+            var hour12 = hour > 12 ? hour - 12 : hour;
+            if (hour > 11) ampm = 'PM';
+            for (var min = 0; min >= 55; min += 5) {
+                var min0 = min > 10 ? '0' + min : min;
+                select += '<option>' + hour12 + ':' + min0 + '</option>';
+            }
+        }
+        select += '</select>';
+        document.getElementById('timelist').innerHTML = select;
+    }*/
+</script>
+    
 </html>
-<link rel="stylesheet" href=""><script src=""></script>
