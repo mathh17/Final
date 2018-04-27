@@ -15,6 +15,7 @@
     <script src="js/TeamObject.js"></script>
     <script src="js/TrainerObject.js"></script>
     <script src="js/InfoObject.js"></script>
+
 </head>
 
 <body>
@@ -176,7 +177,18 @@
 
     }
 
-  
+
+    function teamStartTime(){
+        var startHour = myFunction();
+        var startMinut =  myFunction2();
+        return startHour+ ":"+ startMinut;
+    }
+    
+    function teamEndTime(){
+        var endHour = myFunction3();
+        var endMinutes = myFunction4();
+        return endHour+ ":"+ endMinutes;
+    }
 
 
     // TAGER INFO FRA FORM  
@@ -212,11 +224,13 @@
     }
 
     document.getElementById("opretHold").addEventListener("click", function() {
+        teamStartTime();
         calculateDuration();
         var newTeam = new TeamObject(
             storeTeamName(),
-            8,
-            9,
+            teamStartTime(),
+            teamEndTime(),
+            calculateDuration(),
             trainerSelect(),
             storeTeamLocation(),
             storeMaxParticipants(),
@@ -224,5 +238,5 @@
         console.log(newTeam);
     });
 </script>
-    
+
 </html>
