@@ -12,7 +12,9 @@
     <script src="js/js.js"></script>
     <script src="js/custom.modernizr.js"></script>
     <script src="js/jquery-1.12.4.js"></script>
-
+    <script src="js/TeamObject.js"></script>
+    <script src="js/TrainerObject.js"></script>
+    <script src="js/InfoObject.js"></script>
 </head>
 
 <body>
@@ -35,14 +37,15 @@
         HOLDNAVN:<br>
         <input type="text" name="holdnavn" id="holdnavn"><br> TRÆNER:
         <br>
-        <select>
-        <option id="soeren">Søren</option>
-        <option id="katrine">Katrine</option>
-        <option id="anders">Anders</option>
-        </select>
-        <input type="text" name="lastname" id="lastname"> SAL:
+         <select type="text" id="trainers" onchange="trainerSelect()">
+            <option value="søren">Søren</option>
+            <option value="katrine">Katrine</option>
+            <option value="anders">Anders</option>
+        </select> 
+        SAL:
         <br>
-        <input type="text" name="lokation" id="lokation"> <br> Max. Deltagere
+        <input type="text" name="lokation" id="lokation"> <br> 
+        Max. Deltagere
         <input type="text" name="maxDeltagere" id="maxDeltagere"> <br>
 
 
@@ -143,86 +146,53 @@
         console.log(starTime);
     }
 
-
-    /*var select = document.getElementById('selector');
-    var hours, minutes;
-    for (var i = 60; i <= 1440; i += 15) {
-        var opt = document.createElement('option');
-        /*hours = Math.floor(i / 60);
-
-        minutes = i % 24;
-
-        if (minutes < 10) {
-            minutes = '0' + minutes; // adding leading zero
-        }
-       hours = i/60;
-        /*if (hours === 0) {
-            hours = 12;
-        }
-        console.log(hours);
-        console.log(minutes);
-        /*opt.value = i;
-        opt.innerHTML = hours;
-        select.appendChild(opt);
+        
+    function storeTeamLocation() {
+        var locationId = document.getElementById("lokation");
+        var newLokationName = locationId.value.toString();
+        return newLokationName;
     }
-        */
 
+    function storeTeamName() {
+        var nameId = document.getElementById("holdnavn");
+        var newTeamName = nameId.value.toString();
+        return newTeamName;
+    }
 
-    /*var select = document.getElementById('selector');
-    var hours, minutes;
-    var opt = document.createElement('option');
-    for (var i = 420; i <= 1320; i += 15) {
-        hours = Math.floor(i / 60);
-        minutes = i % 60;
-        if (minutes < 10) {
-            minutes = '0' + minutes; // adding leading zero
+    
+      function storeMaxParticipants() {
+        var maxParticipantId = document.getElementById("maxDeltagere");
+        var newMaxParticipants = parseInt(maxParticipantId.value);
+        return newMaxParticipants;
+    }
+    
+    function trainerSelect() {
+        var x = document.getElementById('trainers');
+        var i = x.selectedIndex;
+        if(i == 0){
+            return trainerArray[0].trainerName;
         }
-        hours = hours % 12;
-        if (hours === 0) {
-            hours = 12;
+        else if(i == 1){
+            return trainerArray[1].trainerName;
         }
-        select.appendChild(opt)
-            .attr('value', i)
-            .text(hours + ':' + minutes + ' ' + ampm));
-    }*/
-
-
-    /*function populate(selector) {
-                var select = $(select);
-                var hours, minutes;
-                for (var i = 420; i <= 1320; i += 15) {
-                    hours = Math.floor(i / 60);
-                    minutes = i % 60;
-                    if (minutes < 10) {
-                        minutes = '0' + minutes; // adding leading zero
-                    }
-                    hours = hours % 12;
-                    if (hours === 0) {
-                        hours = 12;
-                    }
-                    select.append($('<option></option>')
-                        .attr('value', i)
-                        .text(hours + ':' + minutes + ' ' + ampm));
-                }
-            }
-
-            populate('#timeSelect');*/
-    /*________________________*/
-
-    /*function getTime(from, to) {
-        var select = '<select name="time">';
-        var ampm = 'AM';
-        for (var hour = from; hour >= to; hour++) {
-            var hour12 = hour > 12 ? hour - 12 : hour;
-            if (hour > 11) ampm = 'PM';
-            for (var min = 0; min >= 55; min += 5) {
-                var min0 = min > 10 ? '0' + min : min;
-                select += '<option>' + hour12 + ':' + min0 + '</option>';
-            }
+        else if(i == 2){
+            return trainerArray[2].trainerName;
         }
-        select += '</select>';
-        document.getElementById('timelist').innerHTML = select;
-    }*/
+    }
+
+    document.getElementById("opretHold").addEventListener("click", function() {
+        var newTeam = new TeamObject(
+            storeTeamName(),
+            8,
+            9,
+            trainerSelect(),
+            storeTeamLocation(),
+            storeMaxParticipants(),
+            "Du skal cykle");
+        console.log(newTeam);
+    });
+
+ 
 </script>
     
 </html>
