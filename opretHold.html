@@ -216,20 +216,10 @@
         var x = document.getElementById('trainers');
         var i = x.selectedIndex;
         return trainerArray[i].trainerName;
-        /*
-        if (i == 0) {
-            return trainerArray[0].trainerName;
-        } else if (i == 1) {
-            return trainerArray[1].trainerName;
-        } else if (i == 2) {
-            return trainerArray[2].trainerName;
-        }*/
+        
     }
 
     document.getElementById("opretHold").addEventListener("click", function() {
-        
-        
-        /*function TeamObject (teamName, teamStart, teamEnd, teamDuration, teamTrainer, teamLocation, teamMaxParticipants, teamDescription)*/
         
         var newTeam = new TeamObject(
             storeTeamName(),
