@@ -1,0 +1,84 @@
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0px;
+}
+
+/*How the topmenu looks*/
+
+ul.topmenu {
+    background-color: green;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    overflow: hidden;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*Hides the list when not hovered over in small scale*/
+
+ul.topmenu li {
+    display: none;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    border-left: 1px solid #2E312C;
+    padding: 6px 16px;
+}
+/*Makes the first item in the list visible to be able to hover over it in small screen*/
+
+ul.topmenu li:first-child {
+    display: block;
+}
+
+/*Shows entire list when hovered over in small screen*/
+
+ul.topmenu:hover li {
+    display: block;
+}
+
+/*changes the color of each list item with the class .menu when hovered over*/
+
+.menu:hover {
+    background-color: darkgreen;
+}
+
+/*styling each list item with a link*/
+
+ul.topmenu li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+/*This next @media is to make the navbar into big screen mdoe (1280px or above)*/
+
+@media only screen and (min-width: 1280px) {
+
+    /*The two next selectors transform the list into a topbar for screens over 780px*/
+    ul.topmenu li,
+    ul.topmenu li.right {
+        float: left;
+        display: block;
+    }
+    /*Moves the things with .moveRight (opret hold og log off)*/
+    .moveRight {
+        float: right;
+    }
+
+    /*Removes the "menu" list item (Or rather the first list item) for big screens*/
+    ul.topmenu li:first-child {
+        display: none;
+    }
+
+    /*Makes it possible to make the screen into dropdown when screen is smaller than 1280px*/
+    .medium-12 {
+        position: relative;
+        width: 100%;
+    }
+}
+
+/*Sidsel added margin-top so content won't go underneath the navigationbar when the page is loaded*/

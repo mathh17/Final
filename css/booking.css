@@ -1,0 +1,112 @@
+/*
+Coloumns are just prefabs for showing something
+*/
+
+.columns {
+    background: #065ba5;
+    text-align: center;
+    border: 1px solid #000000;
+    height: 20px;
+}
+
+.columnsPlaceholder {
+    background: white;
+    text-align: center;
+    border: 1px solid #000000;
+    height: 20px;
+}
+
+/*_______________________________________________*/
+
+body {
+    width: 100%;
+
+}
+/*Fixes the header to the top of the page*/
+
+
+
+
+.content {
+    background-image: url("../pictures/crossfit.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    opacity: ;
+    display: block;
+    margin: auto;
+    width: 100%;
+    margin-top: 44px;
+}
+
+.godForm {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.buttonLeft {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/*.buttonRight {
+    float: right;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}*/
+
+.buttonMidLeft {
+    margin-left: 200px;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonMid {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonMidRight {
+    margin-left: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.table {
+    opacity: ;
+}
+

@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/css.css">
+    
     <link rel="stylesheet" href="css/foundation.css">
-    <title></title>
-
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/foundation.css">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/opretHold.css">
+    <link rel="stylesheet" href="css/generel.css">
+    
+    
     <script src="js/js.js"></script>
     <script src="js/custom.modernizr.js"></script>
     <script src="js/jquery-1.12.4.js"></script>
@@ -23,6 +22,7 @@
 <body>
     <header>
         <ul class="medium-12 topmenu">
+
             <li>MENU <img src="pictures/dropdown2.png"></li>
             <li><img src="pictures/godFormLogo.png"></li>
             <li class="menu"><a href="index.html">FORSIDE</a></li>
@@ -35,7 +35,10 @@
             </div>
         </ul>
     </header>
-
+    <br>
+    <br>
+    <br>
+    <br>
     <form>
         HOLDNAVN:<br>
         <input type="text" name="holdnavn" id="holdnavn"><br> TRÆNER:
@@ -51,22 +54,31 @@
 
 
     </form>
-    STARTIME
+    STARTID
     <select name="starTime" id="startHours" onchange="myFunction()">
     </select> :
     <select name="startTime" id="startMinutes" onchange="myFunction2()">
-    </select> <br> ENDTIME
+    </select> <br> SLUTTID
     <select name="endTime" id="endHours" onchange="myFunction3()">
     </select> :
     <select name="endTime" id="endMinutes" onchange="myFunction4()">
-    </select> DURATION :
-    <p id="duration"></p>
-
-
+    </select> <br>VARIGHED :
+    <span id="duration"></span> min.
     <br>
     <br>
+
+    <form>
+        <input class="checks" id="monday" type="checkbox"> 
+        <input class="checks" id="tuesdag" type="checkbox"> 
+        <input class="checks" id="wednesday" type="checkbox">
+        <input class="checks" id="thursday" type="checkbox">
+        <input class="checks" id="friday" type="checkbox">
+        <input class="checks" id="saturday" type="checkbox">
+        <input class="checks" id="sunday" type="checkbox"><br>
+        <input id="eachWeek" type="checkbox" class="eachWeek"> 
+    </form>
+    
     <button id="opretHold">Opret Hold</button>
-    <p id="demo"></p>
 </body>
 
 <script>
@@ -88,7 +100,7 @@
     function myFunction() {
         var x = document.getElementById("startHours");
         var i = x.selectedIndex;
-        var text = document.getElementById("demo").innerHTML = x.options[i].text;
+        var text = x.options[i].text;
         var first = text;
         return first;
     }
@@ -111,7 +123,7 @@
     function myFunction2() {
         var x = document.getElementById("startMinutes");
         var i = x.selectedIndex;
-        var text = document.getElementById("demo").innerHTML = x.options[i].text;
+        var text = x.options[i].text;
         var second = text;
         return second;
 
@@ -136,7 +148,7 @@
     function myFunction3() {
         var x = document.getElementById("endHours");
         var i = x.selectedIndex;
-        var text = document.getElementById("demo").innerHTML = x.options[i].text;
+        var text = x.options[i].text;
         var third = text;
         return third;
 
@@ -161,8 +173,7 @@
     function myFunction4() {
         var x = document.getElementById("endMinutes");
         var i = x.selectedIndex;
-
-        var text = document.getElementById("demo").innerHTML = x.options[i].text;
+        var text = x.options[i].text;
         var fourth = text;
         return fourth;
     }
@@ -180,16 +191,16 @@
     }
 
 
-    function teamStartTime(){
+    function teamStartTime() {
         var startHour = myFunction();
-        var startMinut =  myFunction2();
-        return startHour+ ":"+ startMinut;
+        var startMinut = myFunction2();
+        return startHour + ":" + startMinut;
     }
-    
-    function teamEndTime(){
+
+    function teamEndTime() {
         var endHour = myFunction3();
         var endMinutes = myFunction4();
-        return endHour+ ":"+ endMinutes;
+        return endHour + ":" + endMinutes;
     }
 
 
@@ -210,7 +221,7 @@
     function storeMaxParticipants() {
         var maxParticipantId = document.getElementById("maxDeltagere");
         var newMaxParticipants = parseInt(maxParticipantId.value);
-        
+
         return newMaxParticipants;
     }
 
@@ -218,11 +229,11 @@
         var x = document.getElementById('trainers');
         var i = x.selectedIndex;
         return trainerArray[i].trainerName;
-        
+
     }
 
     document.getElementById("opretHold").addEventListener("click", function() {
-        
+
         var newTeam = new TeamObject(
             storeTeamName(),
             teamStartTime(),

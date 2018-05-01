@@ -1,0 +1,18 @@
+body{
+    100%;
+}
+#startHours{
+    width: 50px;
+}
+#startMinutes{
+    width: 50px;
+}#endHours{
+    width: 50px;
+}
+#endMinutes{
+    width: 50px;
+}
+.checks{
+    
+}
+/*OPRETHOLD CSS SLUT*/
