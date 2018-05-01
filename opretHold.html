@@ -69,7 +69,7 @@
 
     <form>
         <input class="checks" id="monday" type="checkbox"> 
-        <input class="checks" id="tuesdag" type="checkbox"> 
+        <input class="checks" id="tuesday" type="checkbox"> 
         <input class="checks" id="wednesday" type="checkbox">
         <input class="checks" id="thursday" type="checkbox">
         <input class="checks" id="friday" type="checkbox">
@@ -232,6 +232,32 @@
 
     }
     
+    function storeWeekDays (){
+        var selectedDay = [];
+        if(document.getElementById('monday').checked == true){
+            selectedDay.push(0);
+        }
+        if(document.getElementById('tuesday').checked == true){
+            selectedDay.push(1);
+        }
+        if(document.getElementById('wednesday').checked == true){
+            selectedDay.push(2);
+        }
+        if(document.getElementById('thursday').checked == true){
+            selectedDay.push(3);
+        }
+        if(document.getElementById('friday').checked == true){
+            selectedDay.push(4);
+        }
+        if(document.getElementById('saturday').checked == true){
+            selectedDay.push(5);
+        }
+        if(document.getElementById('sunday').checked == true){
+            selectedDay.push(6);
+        }
+        return selectedDay;
+    }
+    
 
     document.getElementById("opretHold").addEventListener("click", function() {
         var newTeam = new TeamObject(
@@ -243,7 +269,7 @@
             storeTeamLocation(),
             storeMaxParticipants(),
             "Du skal cykle",
-            "week Days",
+            storeWeekDays(),
             document.getElementById('eachWeek').checked
         );
             
