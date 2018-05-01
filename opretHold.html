@@ -75,7 +75,7 @@
         <input class="checks" id="friday" type="checkbox">
         <input class="checks" id="saturday" type="checkbox">
         <input class="checks" id="sunday" type="checkbox"><br>
-        <input id="eachWeek" type="checkbox" class="eachWeek"> 
+        <input id="eachWeek" type="checkbox" class="eachWeek" value="checked"> 
     </form>
     
     <button id="opretHold">Opret Hold</button>
@@ -231,9 +231,9 @@
         return trainerArray[i].trainerName;
 
     }
+    
 
     document.getElementById("opretHold").addEventListener("click", function() {
-
         var newTeam = new TeamObject(
             storeTeamName(),
             teamStartTime(),
@@ -242,7 +242,11 @@
             trainerSelect(),
             storeTeamLocation(),
             storeMaxParticipants(),
-            "Du skal cykle");
+            "Du skal cykle",
+            "week Days",
+            document.getElementById('eachWeek').checked
+        );
+            
         console.log(newTeam);
     });
 </script>
