@@ -61,6 +61,24 @@ ul.topmenu li a {
     color: black;
 }
 
+/* styling of table */
+td {
+    text-align: center;
+    
+}
+tr{
+    margin: auto;
+}
+
+td {
+    width: 14.28%;
+}
+
+table{
+    width: 100%;
+}
+
+
 /*This next @media is to make the navbar into big screen mdoe (1280px or above)*/
 
 /*This next @media is to make the navbar into big screen mdoe (1280px or above)*/
