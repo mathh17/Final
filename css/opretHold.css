@@ -1,18 +1,79 @@
-body{
-    100%;
+body {
+    background-image: url(../pictures/WomanWeights.jpg);
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100%;
 }
-#startHours{
-    width: 50px;
+
+#trainers {
+    height: 30px;
 }
-#startMinutes{
-    width: 50px;
-}#endHours{
-    width: 50px;
+
+#description {
+    height: 10%;
 }
-#endMinutes{
-    width: 50px;
+
+.startTid {
+    border: solid black 1px;
+    text-align: center;
+    background-color: #DAEDE2;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }
-.checks{
-    
+
+.slutTid {
+    border: solid black 1px;
+    background-color: #EDDCDA;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+
 }
-/*OPRETHOLD CSS SLUT*/
+
+.varighed {
+    border: solid black 1px;
+    background-color: #EDEDDA;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.timePick {
+    background-color: #D6D7D6;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+}
+
+.hverUge {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
+
+}
+
+.timePick input {
+    margin-top: 20px;
+    margin-left: 44%
+}
+
+#startHours {
+    width: 40%;
+}
+
+#startMinutes {
+    width: 40%;
+}
+
+#endHours {
+    width: 40%;
+}
+
+#endMinutes {
+    width: 40%;
+}
+
+
+
+.opretHold {
+    text-align: center;
+}

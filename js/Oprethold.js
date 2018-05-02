@@ -144,7 +144,7 @@
 
     function trainerSelect() {
         var x = document.getElementById('trainers');
-        var i = x.selectedIndex;
+        var i = x.selectedIndex - 1;
         return trainerArray[i].trainerName;
 
     }
@@ -176,6 +176,11 @@
     }
     
 
+    function storeTeamDescription (){
+        return document.getElementById('description').value.toString();
+        
+    }
+
     document.getElementById("opretHold").addEventListener("click", function() {
         var newTeam = new TeamObject(
             storeTeamName(),
@@ -185,7 +190,7 @@
             trainerSelect(),
             storeTeamLocation(),
             storeMaxParticipants(),
-            "Du skal cykle",
+            storeTeamDescription(),
             storeWeekDays(),
             document.getElementById('eachWeek').checked
         );
