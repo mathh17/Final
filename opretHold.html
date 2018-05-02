@@ -4,25 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/opretHold.css">
     <link rel="stylesheet" href="css/generel.css">
-    
-    
+
+
     <script src="js/js.js"></script>
     <script src="js/custom.modernizr.js"></script>
-   <!-- <script src="js/jquery-1.12.4.js"></script>-->
+    <!-- <script src="js/jquery-1.12.4.js"></script>-->
     <script src="js/TeamObject.js"></script>
     <script src="js/TrainerObject.js"></script>
     <script src="js/InfoObject.js"></script>
-    
+
 </head>
 
 <body>
     <header>
         <ul class="medium-12 topmenu">
-            <li>MENU<img src="pictures/arrowbig.png"></li>
+
+            <li>MENU <img src="pictures/dropdown2.png"></li>
             <li><img src="pictures/godFormLogo.png"></li>
             <li class="menu"><a href="index.html">FORSIDE</a></li>
             <li class="menu"><a href="booking.html">BOOKING</a></li>
@@ -30,7 +31,7 @@
             <div class="moveRight">
                 <span></span>
                 <li class="menu"><a href="opretHold.html">OPRET HOLD</a></li>
-                <li class="menu"><a href="index.html">LOG AF</a></li>
+                <li class="menu"><a href="index.html">LOG OFF</a></li>
             </div>
         </ul>
     </header>
@@ -38,55 +39,76 @@
     <br>
     <br>
     <br>
-    <form>
-        HOLDNAVN:<br>
-        <input type="text" name="holdnavn" id="holdnavn"><br> TRÆNER:
-        <br>
-        <select type="text" id="trainers" onchange="trainerSelect()">
+    <div class="wrapper large-12 small-12">
+        <div class="row">
+            <div class="small-10 small-offset-1 large-8 large-offset-2">
+
+                <input type="text" name="holdnavn" id="holdnavn" placeholder="HOLDNAVN">
+                <select type="text" id="trainers" onchange="trainerSelect()">
+            <option value="" disabled selected>VÆLG TRÆNER</option>
             <option value="søren">Søren</option>
             <option value="katrine">Katrine</option>
             <option value="anders">Anders</option>
-        </select> SAL:
-        <br>
-        <input type="text" name="lokation" id="lokation"> <br> Max. Deltagere
-        <input type="text" name="maxDeltagere" id="maxDeltagere"> <br>
+        </select>
+                <input type="text" name="lokation" id="lokation" placeholder="SAL">
+                <input type="text" name="maxDeltagere" id="maxDeltagere" placeholder="MAKS DELTAGERE">
+                <textarea rows="5" cols="50" type="text" name="beskrivelse" id="description" placeholder="HOLD BESKRIVELSE"></textarea>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-10 small-offset-1 large-8 large-offset-2">
+                <div class="startTid">
+                    <p>STARTTID</p>
+
+                    <select name="starTime" id="startHours" onchange="myFunction()">
+        </select> :
+                    <select name="startTime" id="startMinutes" onchange="myFunction2()">
+        </select>
+                </div>
+                <div class="slutTid">
+                    <p>SLUTTID</p>
+
+                    <select name="endTime" id="endHours" onchange="myFunction3()">
+        </select> :
+                    <select name="endTime" id="endMinutes" onchange="myFunction4()">
+        </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-10 small-offset-1 large-8 large-offset-2">
+                <div class="varighed">
+                    <p>VARIGHED</p>
+                    <span id="duration"></span> min.
+                </div>
+                <div class="timePick">
 
 
-    </form>
-    STARTID
-    <select name="starTime" id="startHours" onchange="myFunction()">
-    </select> :
-    <select name="startTime" id="startMinutes" onchange="myFunction2()">
-    </select> <br> SLUTTID
-    <select name="endTime" id="endHours" onchange="myFunction3()">
-    </select> :
-    <select name="endTime" id="endMinutes" onchange="myFunction4()">
-    </select> <br>VARIGHED :
-    <span id="duration"></span> min.
-    <br>
-    <br>
+                    <input class="checks" id="monday" type="checkbox"> Mandag <br>
+                    <input class="checks" id="tuesdag" type="checkbox"> Tirsdag <br>
+                    <input class="checks" id="wednesday" type="checkbox"> Onsdag <br>
+                    <input class="checks" id="thursday" type="checkbox"> Torsdag <br>
+                    <input class="checks" id="friday" type="checkbox"> Fredag <br>
+                    <input class="checks" id="saturday" type="checkbox"> Lørdag <br>
+                    <input class="checks" id="sunday" type="checkbox"> Søndag<br>
 
-    <form>
-        <input class="checks" id="monday" type="checkbox"> 
-        <input class="checks" id="tuesday" type="checkbox"> 
-        <input class="checks" id="wednesday" type="checkbox">
-        <input class="checks" id="thursday" type="checkbox">
-        <input class="checks" id="friday" type="checkbox">
-        <input class="checks" id="saturday" type="checkbox">
-        <input class="checks" id="sunday" type="checkbox"><br>
-        <input id="eachWeek" type="checkbox" class="eachWeek" value="checked"> 
-    </form>
-    
-    <button id="opretHold">Opret Hold</button>
+                    <div class="hverUge">
+                        <input id="eachWeek" type="checkbox" class="eachWeek"> Hver Uge
+                    </div>
+                </div>
+                <div class="opretHold">
+                    <button id="opretHold">Opret Hold</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/Oprethold.js"></script>
-   
+
 
 </body>
 
-<script>
-    
-</script>
 
 </html>
- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="js/navBar.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/navBar.js"></script>
