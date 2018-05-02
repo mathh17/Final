@@ -194,6 +194,16 @@
             storeWeekDays(),
             document.getElementById('eachWeek').checked
         );
-        localStorage.setItem('newTeam_Data', JSON.stringify(newTeam));
+         var lsTeam = localStorage.getItem('newTeam_Data');
+            if (lsTeam != null) {
+                lsTeamsArray = JSON.parse(lsTeam);
+            } else {
+                lsTeamsArray = new Array();
+            }
+
+            lsTeamsArray.push(newTeam);
+
+            localStorage.setItem('newTeam_Data', JSON.stringify(lsTeamsArray));
+        
         console.log(newTeam);
     });
