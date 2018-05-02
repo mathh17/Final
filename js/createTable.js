@@ -160,13 +160,19 @@ $(document).ready(function () {
     $(".buttonMid").text('UGE ' + week.toString());
 
     $(".buttonMidRight").click(function () {
-        $(".buttonMid").text('UGE ' + (week + 1).toString());
+        if(currentWeek < 2)
         currentWeek++;
+        else
+            alert("Det er ikke muligt at booke mere end to uger frem. Vh. God Form :)")
+        $(".buttonMid").text('UGE ' + (week + currentWeek).toString());
         buildTable();
     });
     $(".buttonMidLeft").click(function () {
         $(".buttonMid").text('UGE ' + week.toString());
+         if(currentWeek > 0)
         currentWeek--;
+        else
+            alert("Det er ikke muligt at gå tilbage i tiden :)")
         buildTable();   
     });
 
