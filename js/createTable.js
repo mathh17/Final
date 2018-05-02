@@ -41,6 +41,7 @@ for (var i = 0; i < lsTeamsArray.length; i++) {
 }
 
 function buildTable() {
+    $('#dynamicTable').empty();
     $('#dynamicTable').append('<table></table>');
 
     $('#dynamicTable table').append('<tr></tr>').attr('id', 'tableDates');
