@@ -12,66 +12,31 @@ var weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'S
 var week = moment().week();
 var date = moment().format("MMM Do YY");
 
-//hold
-var sørenPicture = new Image();
-sørenPicture.src = "Udklip5.png";
 
-var søren = new TrainerObject(
-    "Søren",
-    sørenPicture,
-    "Han hedder søren"
-);
+ function loadTeamArray() {
+            var lsTeam = localStorage.getItem('newTeam_Data');
+            if (lsTeam != null) {
+                lsTeamsArray = new Array();
+                lsTeamsArray = JSON.parse(lsTeam);
+                $(lsTeamsArray).each(function (index, data) {
+                console.log("index: " + index + ", data: " + data);
+                });
+            }
+        }
 
-var katrinePicture = new Image();
-katrinePicture.src = "Udklip5.png";
+loadTeamArray();
 
-var katrine = new TrainerObject(
-    "Katrine",
-    katrinePicture,
-    "Hun hedder Katrine"
-);
-
-
-var spinning = new TeamObject(
-    "Spinning",
-    08,
-    09,
-    søren.trainerName,
-    "Salen",
-    10,
-    "Du skal cykle"
-);
-
-var spinning2 = new TeamObject(
-    "Spinning2",
-    09,
-    10,
-    søren.trainerName,
-    "Salen",
-    10,
-    "Du skal cykle"
-);
-
-
-
-var spinning3 = new TeamObject(
-    "Spinning3",
-    08,
-    09,
-    søren.trainerName,
-    "Salen",
-    10,
-    "Du skal cykle"
-);
-
-var teamArr = [];
-teamArr.push(spinning);
-teamArr.push(spinning2);
-teamArr.push(spinning3);
-for (var i = 0; i < teams.length; i++) {
-    for (var e = 0; e < getRandomInt(4); e++) {
-        teams[i].push(teamArr[getRandomInt(3)]);
+for (var i = 0; i < lsTeamsArray.length; i++) {
+    var weekDay = lsTeamsArray[i].teamActiveDays;
+    for(var j = 0; j < teams.length; j++){
+        for(var e = 0; e < weekDay.length; e++)
+        if(weekDay[e] == j){
+            teams[j].push(lsTeamsArray[i]);
+        }
     }
+    console.log(lsTeamsArray);
+    console.log(weekDay[0]);
+    console.log(teams);
 }
 
 function buildTable() {
@@ -157,7 +122,6 @@ function getRandomInt(max) {
 
 
 $(document).ready(function () {
-
     for (var i = 0; i < teams.length; i++) {
         teams[i].sort(dynamicSort('teamStart'));
     }
