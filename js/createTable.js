@@ -44,13 +44,18 @@ for (var i = 0; i < lsTeamsArray.length; i++) {
 
 function buildTable() {
     $('#dynamicTable').empty();
-    $('#dynamicTable').append('<table></table>');
+    $('#dynamicTable').append('<table cellspacing="0"></table>');
+    $('#dynamicTable table').addClass('mainTable');
+    $('.mainTable').append('<thead></thead>' +
+                           '<tbody></tbody>');
+    
 
-    $('#dynamicTable table').append('<tr></tr>').attr('id', 'tableDates');
+    $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
 
     //Table Header
     for (var i = 0; i < weekday.length; i++) {
-        $('#tableDates').append('<td><table id="' + weekday[i] + '" class="innerTable"></table></td>');
+        $('#tableDates').append('<th id="' + weekday[i] + '" class="headerTable"></th>');
+        $('tbody').append('<td class="inner' + weekday[i] + '" class="innerTable"></td>');
     }
 
 
@@ -93,32 +98,31 @@ function buildTable() {
         
         // appends dates to table
         if (month < 10 && day < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + day + '-0' + month + '</th>');
+            $("#" + weekday[i]).append(weekday[i] + "<br>0" + day + '-0' + month);
         } else if (month < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + day + '-0' + month + '</th>');
+            $("#" + weekday[i]).append(weekday[i] + "<br>" + day + '-0' + month );
         } else if (day < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + day + '-' + month + '</th>');
+            $("#" + weekday[i]).append(weekday[i] + "<br>0" + day + '-' + month );
         } else {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + day + '-' + month + '</th>');
+            $("#" + weekday[i]).append(weekday[i] + "<br>" + day + '-' + month );
         }
         
         
-        for (e = 0; e < teams[i].length; e++) {
-            $('#' + weekday[i]).parent().append(
-                '<tr class="' + teams[i][e].teamName + '-' + day + month + '-' + e + '">' +
-                '</tr>'
+       for (e = 0; e < teams[i].length; e++) {
+            $('.inner' + weekday[i]).append(
+                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + '">' +
+                '</td></tr>'
             );
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<td class="' + teams[i][e].teamName + '">' + '<div><tr><td>' + teams[i][e].teamName +
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(teams[i][e].teamName + '" valign="top">' + teams[i][e].teamName +
                     '<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd +
                     '<br>' + teams[i][e].teamDuration + ' min' +
                     '<br>' + teams[i][e].teamLocation +
                     '<br>' + teams[i][e].teamTrainer +
-                    '<br> 0/' + teams[i][e].teamMaxParticipants +
-                    '</td></tr></div>' +
-                    '</td>');
+                    '<br> 0/' + teams[i][e].teamMaxParticipants
+                    );
             }
             
         }
