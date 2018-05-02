@@ -25,11 +25,11 @@ $(document).ready(function() {
                 /*This functions checks whether the list items with the .menu class are displayed or not, then sets them to the opposite when the first list item (menu) is clicked. It also rotates the arrow img to point the opposite direction.*/
             $("ul.topmenu li:first-child").click(function() {
                 if ($(".menu").css("display") == 'none'){
-                    $(".menu").css("display", "block");
+                    $(".menu").slideDown().css("display", "block");
                     $("ul.topmenu li:first-child img").css("transform", "rotate(-180deg)");
                 }
                 else if ($(".menu").css("display") == 'block'){
-                    $(".menu").css("display", "none");
+                    $(".menu").slideUp()/*css("display", "none")*/;
                     $("ul.topmenu li:first-child img").css("transform", "rotate(0deg)");
                 }
             });
