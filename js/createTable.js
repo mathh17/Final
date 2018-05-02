@@ -116,7 +116,7 @@ function buildTable() {
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(teams[i][e].teamName + '" valign="top">' + teams[i][e].teamName +
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append( teams[i][e].teamName +
                     '<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd +
                     '<br>' + teams[i][e].teamDuration + ' min' +
                     '<br>' + teams[i][e].teamLocation +
