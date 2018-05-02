@@ -78,6 +78,11 @@ table{
     width: 100%;
 }
 
+.innerTable {
+    margin-bottom: unset;
+    
+}
+
 
 /*This next @media is to make the navbar into big screen mdoe (1280px or above)*/
 

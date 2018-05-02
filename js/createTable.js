@@ -11,6 +11,8 @@ var teams = [teamMandagFormiddag, teamTirsdagFormiddag, teamOnsdagFormiddag, tea
 var weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag'];
 var week = moment().week();
 var date = moment().format("MMM Do YY");
+var day;
+var month;
 var currentWeek = 0;
 
 
@@ -86,28 +88,32 @@ function buildTable() {
         //appends dates to table head
         someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
 
-        if (someDate.getMonth() < 10 && someDate.getDate() < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + someDate.getDate() + '-0' + (someDate.getMonth() + 1) + '</th>');
-        } else if (someDate.getMonth() < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + someDate.getDate() + '-0' + (someDate.getMonth() + 1) + '</th>');
-        } else if (someDate.getDate() < 10) {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + someDate.getDate() + '-' + (someDate.getMonth() + 1) + '</th>');
+        day = someDate.getDate();
+        month = someDate.getMonth() + 1;
+        
+        // appends dates to table
+        if (month < 10 && day < 10) {
+            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + day + '-0' + month + '</th>');
+        } else if (month < 10) {
+            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + day + '-0' + month + '</th>');
+        } else if (day < 10) {
+            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>0" + day + '-' + month + '</th>');
         } else {
-            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + someDate.getDate() + '-' + (someDate.getMonth() + 1) + '</th>');
+            $("#" + weekday[i]).append('<th>' + weekday[i] + "<br>" + day + '-' + month + '</th>');
         }
-
-        console.log(someDate);
+        
+        
         for (e = 0; e < teams[i].length; e++) {
             $('#' + weekday[i]).parent().append(
-                '<tr class="' + teams[i][e].teamName + '-' + someDate.getDate() + (someDate.getMonth() + 1) + '-' + e + '">' +
+                '<tr class="' + teams[i][e].teamName + '-' + day + month + '-' + e + '">' +
                 '</tr>'
             );
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
-                $('.' + teams[i][e].teamName + '-' + someDate.getDate() + (someDate.getMonth() + 1) + '-' + e).append('<td class="' + teams[i][e].teamName + '">' + '<div><tr><td>' + teams[i][e].teamName +
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<td class="' + teams[i][e].teamName + '">' + '<div><tr><td>' + teams[i][e].teamName +
                     '<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd +
-                    '<br>30 min' +
+                    '<br>' + teams[i][e].teamDuration + ' min' +
                     '<br>' + teams[i][e].teamLocation +
                     '<br>' + teams[i][e].teamTrainer +
                     '<br> 0/' + teams[i][e].teamMaxParticipants +
