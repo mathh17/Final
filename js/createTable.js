@@ -121,7 +121,8 @@ function buildTable() {
                     '<br>' + teams[i][e].teamDuration + ' min' +
                     '<br>' + teams[i][e].teamLocation +
                     '<br>' + teams[i][e].teamTrainer +
-                    '<br> 0/' + teams[i][e].teamMaxParticipants
+                    '<br> 0/' + teams[i][e].teamMaxParticipants + 
+                    '<br> <button type="button">Tilmeld</button>'                                                      
                     );
             }
             
@@ -176,7 +177,9 @@ $(document).ready(function () {
         buildTable();   
     });
 
-
+ 
+   // $('.mainTable').stacktable();
+   // $('.mainTable').stackcolumns();
 });
 
 

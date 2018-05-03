@@ -81,6 +81,10 @@ td {
 
 table {}
 
+button {
+    border-radius: 3px;
+}
+
 .headerTable {
 
     margin-bottom: unset;
@@ -95,10 +99,10 @@ table {}
 }
 
 #Mandag {
-     border-top-left-radius: 10px;
+     border-top-left-radius: 5px;
 }
 #Søndag {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 5px;
 }
 
 .mainTable {
