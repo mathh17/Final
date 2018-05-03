@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Log In</title>
+    </head>
+<body>
+    <h1>Log In</h1>
+    <label for="username">Username:</label>
+    <input type="email" placeholder="Brugernavn" id="username" />
+    
+    <label for="password">Password:</label>
+    <input type="password" placeholder="Password" id="password" />
+    
+    <input type="submit" value="Login" onclick="checkForUser()" />
+    <script src="js/UserData.js"></script>
+    
+    
+    
+    </body>
+<script>
+    var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    function checkForUser(){
+    var userNameInput = document.getElementById('username').value;
+    var passwordInput = document.getElementById('password').value;
+   
+    userNameInput = userNameInput.toString();
+    userNameInput = userNameInput.toLowerCase();
+    var validEmail = emailRegex.test(userNameInput);
+        if(validEmail == false){
+            alert('The email you have entered is invalid')
+        }
+    
+    for(index in userData ){
+        var user = userData[index];
+        
+        if(userNameInput == user.email && passwordInput == user.password){
+             alert('Logged in as ' + user.first_name +  ' ' + user.last_name);
+            console.log(userNameInput);
+        }
+        
+    }
+    }
+
+    
+    </script>
+</html>
