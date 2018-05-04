@@ -19,7 +19,9 @@
     
     </body>
 <script>
+    var loggedInUser = [];
     var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
     function checkForUser(){
     var userNameInput = document.getElementById('username').value;
     var passwordInput = document.getElementById('password').value;
@@ -33,10 +35,10 @@
     
     for(index in userData ){
         var user = userData[index];
-        
         if(userNameInput == user.email && passwordInput == user.password){
-             alert('Logged in as ' + user.first_name +  ' ' + user.last_name);
-            console.log(userNameInput);
+            window.location='index.html';
+            loggedInUser.push(user);
+             localStorage.setItem('loggedInUserStorage', JSON.stringify(loggedInUser));
         }
         
     }
