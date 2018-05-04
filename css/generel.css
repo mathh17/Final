@@ -26,9 +26,10 @@ ul.topmenu li {
     display: none;
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: white;
     border-left: 1px solid #2E312C;
     padding: 6px 16px;
+    letter-spacing: 2px;
 }
 
 /*Makes the first item in the list ("menu") visible to be able to hover over it in small screen*/
@@ -60,7 +61,8 @@ ul.topmenu li:first-child img {
 ul.topmenu li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: white;
+    letter-spacing: 2px;
 }
 
 /* styling of table */
