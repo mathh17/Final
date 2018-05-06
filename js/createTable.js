@@ -49,7 +49,8 @@ function buildTable() {
     $('.mainTable').append('<thead></thead>' +
                            '<tbody></tbody>');
     
-
+    var buttonHTML = '<br><div class="cube"><div class="front"> DELTAG </div><div class="bottom"><img class="knapImage" src="pictures/godForm.png"></div><div class="back"> AFMELD </div><div class="top"></div></div><div class="shadow"></div>';
+    
     $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
 
     //Table Header
@@ -121,13 +122,20 @@ function buildTable() {
                     '<br>' + teams[i][e].teamDuration + ' min' +
                     '<br>' + teams[i][e].teamLocation +
                     '<br>' + teams[i][e].teamTrainer +
-                    '<br> 0/' + teams[i][e].teamMaxParticipants + 
-                    '<br> <button type="button">Tilmeld</button>'                                                      
+                    '<br> 0/' + teams[i][e].teamMaxParticipants + buttonHTML                                                      
                     );
             }
             
         }
     }
+    
+    $(".cube").click(function() {
+                //use a class, since your ID gets mangled
+                if ($(this).hasClass('rotate') == true) {
+                    $(this).removeClass('rotate');
+                } else
+                    $(this).addClass('rotate'); //add the class to the clicked element
+            });
 }
 
 
@@ -155,6 +163,8 @@ $(document).ready(function () {
     }
 
     buildTable();
+    
+    
 
 
     // Week + Buttons
@@ -176,8 +186,7 @@ $(document).ready(function () {
             alert("Det er ikke muligt at gå tilbage i tiden :)")
         buildTable();   
     });
-
- 
+    
    // $('.mainTable').stacktable();
    // $('.mainTable').stackcolumns();
 });
