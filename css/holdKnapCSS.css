@@ -5,6 +5,7 @@
         .cube {
             height: 40px;
             width: 100%;
+
             transform-origin: 75% 75%;
             transform-style: preserve-3d;
             transition: 1.4s all;
