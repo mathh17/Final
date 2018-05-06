@@ -39,70 +39,72 @@
     <br>
     <br>
     <br>
-    <div class="wrapper large-12 small-12">
-        <div class="row">
-            <div class="small-10 small-offset-1 large-8 large-offset-2">
-
-                <input type="text" name="holdnavn" id="holdnavn" placeholder="HOLDNAVN">
-                <select type="text" id="trainers" onchange="trainerSelect()">
+    <form onsubmit="thanks()">
+        <div class="wrapper large-12 small-12">
+            <div class="row">
+                <div class="small-10 small-offset-1 large-8 large-offset-2">
+                    <input type="text" name="holdnavn" id="holdnavn" placeholder="HOLDNAVN" required>
+                    <select type="text" id="trainers" onchange="trainerSelect()" required>
             <option value="" disabled selected>VÆLG TRÆNER</option>
             <option value="søren">Søren</option>
             <option value="katrine">Katrine</option>
             <option value="anders">Anders</option>
         </select>
-                <input type="text" name="lokation" id="lokation" placeholder="SAL">
-                <input type="text" name="maxDeltagere" id="maxDeltagere" placeholder="MAKS DELTAGERE">
-                <textarea rows="5" cols="50" type="text" name="beskrivelse" id="description" placeholder="HOLD BESKRIVELSE"></textarea>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="small-10 small-offset-1 large-8 large-offset-2">
-                <div class="startTid">
-                    <p>STARTTID</p>
-
-                    <select name="starTime" id="startHours" onchange="myFunction()">
-        </select> :
-                    <select name="startTime" id="startMinutes" onchange="myFunction2()">
-        </select>
-                </div>
-                <div class="slutTid">
-                    <p>SLUTTID</p>
-
-                    <select name="endTime" id="endHours" onchange="myFunction3()">
-        </select> :
-                    <select name="endTime" id="endMinutes" onchange="myFunction4()">
-        </select>
+                    <input type="text" name="lokation" id="lokation" placeholder="SAL" required>
+                    <input type="number" onkeydown="javascript: return event.keyCode !== 69" name="maxDeltagere" id="maxDeltagere" placeholder="MAKS DELTAGERE" min="0" required>
+                    <textarea rows="5" cols="50" type="text" name="beskrivelse" id="description" placeholder="HOLD BESKRIVELSE" required></textarea>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="small-10 small-offset-1 large-8 large-offset-2">
-                <div class="varighed">
-                    <p>VARIGHED</p>
-                    <span id="duration"></span> min.
-                </div>
-                <div class="timePick">
+            <div class="row">
+                <div class="small-10 small-offset-1 large-8 large-offset-2">
+                    <div class="startTid">
+                        <p>STARTTID</p>
+
+                        <select name="starTime" id="startHours" onchange="myFunction()" required>
+        </select> :
+                        <select name="startTime" id="startMinutes" onchange="myFunction2()">
+        </select>
+                    </div>
+                    <div class="slutTid">
+                        <p>SLUTTID</p>
+
+                        <select name="endTime" id="endHours" onchange="myFunction3()" required>
+        </select> :
+                        <select name="endTime" id="endMinutes" onchange="myFunction4()">
+        </select>
 
 
-                    <input class="checks" id="monday" type="checkbox"> Mandag <br>
-                    <input class="checks" id="tuesday" type="checkbox"> Tirsdag <br>
-                    <input class="checks" id="wednesday" type="checkbox"> Onsdag <br>
-                    <input class="checks" id="thursday" type="checkbox"> Torsdag <br>
-                    <input class="checks" id="friday" type="checkbox"> Fredag <br>
-                    <input class="checks" id="saturday" type="checkbox"> Lørdag <br>
-                    <input class="checks" id="sunday" type="checkbox"> Søndag<br>
-
-                    <div class="hverUge">
-                        <input id="eachWeek" type="checkbox" class="eachWeek"> Hver Uge
                     </div>
                 </div>
-                <div class="opretHold">
-                    <button id="opretHold">Opret Hold</button>
+            </div>
+            <div class="row">
+                <div class="small-10 small-offset-1 large-8 large-offset-2">
+                    <div class="varighed">
+                        <p>VARIGHED</p>
+                        <span id="duration"></span> min.
+                    </div>
+                    <div class="timePick">
+
+
+                        <input class="checks" id="monday" type="checkbox"> Mandag <br>
+                        <input class="checks" id="tuesday" type="checkbox"> Tirsdag <br>
+                        <input class="checks" id="wednesday" type="checkbox"> Onsdag <br>
+                        <input class="checks" id="thursday" type="checkbox"> Torsdag <br>
+                        <input class="checks" id="friday" type="checkbox"> Fredag <br>
+                        <input class="checks" id="saturday" type="checkbox"> Lørdag <br>
+                        <input class="checks" id="sunday" type="checkbox"> Søndag<br>
+
+                        <div class="hverUge">
+                            <input id="eachWeek" type="checkbox" class="eachWeek"> Hver Uge
+                        </div>
+                    </div>
+                    <div class="opretHoldPos">
+                        <input type="submit" id="opretHold" value="Opret Hold">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <script src="js/Oprethold.js"></script>
 
 
@@ -110,5 +112,10 @@
 
 
 </html>
+<script>
+function thanks(){
+    alert('Holdet er oprettet');
+}
+</script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="js/navBar.js"></script>
