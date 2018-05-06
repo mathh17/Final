@@ -99,4 +99,5 @@ var userData =
 {"id":98,"first_name":"Evan","last_name":"Truett","email":"etruett2p@wikimedia.org","password":"tDSESC","phone number":"3719857631","address":"37622 Washington Pass"},
 {"id":99,"first_name":"Tedi","last_name":"Bonefant","email":"tbonefant2q@infoseek.co.jp","password":"arkBb44","phone number":"6708141237","address":"7109 Troy Avenue"},
 {"id":100,"first_name":"Dale","last_name":"Nettleship","email":"dnettleship2r@behance.net","password":"ozwqpMbmyP","phone number":"8699390168","address":"8415 Westridge Court"},
-{"id":101,"first_name":"Admin","last_name":"","email":"admin@godform.dk","password":"awjdabP","phone number":"8699390165","address":"38 Mågevej"}]
+{"id":101,"first_name":"Admin","last_name":"","email":"admin@godform.dk","password":"awjdabP","phone number":"8699390165","address":"38 Mågevej"},
+{"id":102,"first_name":"Forkert Bruger","last_name":"","email":"awbøaof","password":"aæbwfæuae","phone number":"","address":""}]

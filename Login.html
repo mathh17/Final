@@ -57,11 +57,16 @@
         
         if(userNameInput == user.email && passwordInput == user.password){
              alert('Logged in as ' + user.first_name +  ' ' + user.last_name);
+            window.location.replace('index.html')
             console.log(userNameInput);
+            break;
+        }
+        if(user.id == 102){
+            alert('Forkert Brugernavn eller Password')
         }
         
     }
-        alert('Forkert Brugernavn eller Password');
+
     }
 
     
