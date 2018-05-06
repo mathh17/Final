@@ -117,16 +117,23 @@ function buildTable() {
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append( teams[i][e].teamName +
-                    '<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd +
-                    '<br>' + teams[i][e].teamDuration + ' min' +
-                    '<br>' + teams[i][e].teamLocation +
-                    '<br>' + teams[i][e].teamTrainer +
-                    '<br> 0/' + teams[i][e].teamMaxParticipants + buttonHTML                                                      
-                    );
+                //teamname
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(teams[i][e].teamName);
+                //start and end
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd);
+                //team duration
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamDuration + ' min' );
+                //Location
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamLocation);
+                //Trainer
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamTrainer);
+                //Participants
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> 0/' + teams[i][e].teamMaxParticipants);
+                //participate button
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
+                    
             }
-            
-        }
+       }
     }
     
     $(".cube").click(function() {
