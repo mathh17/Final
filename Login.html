@@ -3,8 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <title>Log In</title>
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/login.css">
+    
+    <script src="js/custom.modernizr.js"></script>
+    
     </head>
 <body>
+    
+    <header>
+        <ul class="medium-12 topmenu">
+            <li><img src="pictures/godFormLogo.png"></li>
+            <li><img src="pictures/godFormLogo.png"></li>
+            
+        </ul>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    
     <h1>Log In</h1>
     <label for="username">Username:</label>
     <input type="email" placeholder="Brugernavn" id="username" />
@@ -19,9 +40,7 @@
     
     </body>
 <script>
-    var loggedInUser = [];
     var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
     function checkForUser(){
     var userNameInput = document.getElementById('username').value;
     var passwordInput = document.getElementById('password').value;
@@ -35,17 +54,13 @@
     
     for(index in userData ){
         var user = userData[index];
+        
         if(userNameInput == user.email && passwordInput == user.password){
-            window.location='index.html';
-            loggedInUser.push(user);
-             localStorage.setItem('loggedInUserStorage', JSON.stringify(loggedInUser));
+             alert('Logged in as ' + user.first_name +  ' ' + user.last_name);
+            console.log(userNameInput);
         }
         
-        
     }
-        
-            alert('Forkert brugernavn eller password');
-        
     }
 
     
