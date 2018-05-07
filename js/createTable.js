@@ -176,8 +176,9 @@ $(document).ready(function () {
 
 
 
+  
     // Week + Buttons
-     $(".buttonMid").text('UGE ' + week.toString());
+    $(".buttonMid").text('UGE ' + week.toString());
 
     $(".buttonMidRight").click(function () {
         if (currentWeek < 2)
