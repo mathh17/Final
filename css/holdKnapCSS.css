@@ -1,22 +1,20 @@
         .rotate {
-            transform: rotateX(180deg);
+            transform: rotateX(181deg);
         }
 
         .cube {
-            position: relative;
             height: 40px;
             width: 100%;
 
-            transform-origin: 60% 62%;
+            transform-origin: 75% 75%;
             transform-style: preserve-3d;
             transition: 1.4s all;
-            z-index: 1;
         }
 
         .front {
 
             width: 100px;
-            height: 40px;
+            height: 50px;
 
             background: #D08671;
             background: -webkit-linear-gradient(top, darkgreen 0%, lightgreen 100%);
@@ -25,16 +23,16 @@
             text-align: center;
             color: #fff;
             font-size: 15px;
-            padding-top: 13px;
+            padding-top: 17px;
             letter-spacing: 2px;
-            transform: rotateX(0deg) translate3d(0px, 5px, 20px);
+            transform: rotateX(0deg) translate3d(0px, 5px, 25px);
             cursor: pointer;
         }
         
         .bottom {
 
             width: 100px;
-            height: 40px;
+            height: 50px;
             background: #D08671;
             background: -webkit-linear-gradient(top, darkgreen 0%, lightgreen 100%);
             background: -moz-linear-gradient(top, darkgreen 0%, lightgreen 100%);
@@ -42,16 +40,16 @@
             text-align: center;
             color: #fff;
             font-size: 15px;
-            padding-top: 10px;
+            padding-top: 17px;
             letter-spacing: 1px;
-            transform: rotateX(-90deg) translate3d(0px, 0px, -15px);
+            transform: rotateX(-90deg) translate3d(0px, 0px, -20px);
             cursor: pointer;
         }
 
         .back {
 
             width: 100px;
-            height: 40px;
+            height: 50px;
             background: #D08671;
             background: -webkit-linear-gradient(top, #f55639 0%, #c91832 100%);
             background: -moz-linear-gradient(top, #f55639 0%, #c91832 100%);
@@ -59,16 +57,16 @@
             text-align: center;
             color: #fff;
             font-size: 15px;
-            padding-top: 13px;
+            padding-top: 17px;
             letter-spacing: 1px;
-            transform: rotateX(-180deg) translate3d(0px, 75px, 20px);
+            transform: rotateX(-180deg) translate3d(0px, 95px, 25px);
             cursor: pointer;
         }
         
         .top {
 
             width: 100px;
-            height: 40px;
+            height: 50px;
             background: #D08671;
             background: -webkit-linear-gradient(top, darkgreen 0%, lightgreen 100%);
             background: -moz-linear-gradient(top, darkgreen 0%, lightgreen 100%);
@@ -78,16 +76,15 @@
             font-size: 0px;
             padding-top: 0px;
             letter-spacing: 0px;
-            transform: rotateX(-270deg) translate3d(0px, 0px, 135px);
+            transform: rotateX(-270deg) translate3d(0px, 0px, 120px);
             cursor: pointer;
         }
 
         .shadow {
-            
+
             background: #222;
             width: 100px;
-            height: 40px;
-            margin: -10px;
+            height: 50px;
             opacity: 0.2;
             z-index: -1;
             transform: rotateX(75deg) translate3d(0px, 0px, 0px);

@@ -49,7 +49,7 @@ function buildTable() {
     $('.mainTable').append('<thead></thead>' +
                            '<tbody></tbody>');
     
-    var buttonHTML = '<br><div align="center" class="cube"><div class="front"> DELTAG </div><div class="bottom"><img class="knapImage" src="pictures/godForm.png"></div><div class="back"> AFMELD </div><div class="top"></div></div><div align="center"><div class="shadow"></div></div>';
+    var buttonHTML = '<br><div align="center" class="cube"><div class="front"> DELTAG </div><div class="bottom"><img class="knapImage" src="pictures/godForm.png"></div><div class="back"> AFMELD </div><div class="top"></div></div><div class="shadow"></div>';
     
     $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
 
