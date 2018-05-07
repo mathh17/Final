@@ -1,8 +1,78 @@
+#canvas {
+    width: 100%;
+    border-color: rgba(0, 0, 0, 1);
+    /*
+    margin-bottom: -4%;
+*/
+}
+
+.canvasUpperBorder {
+    border-width: 100%;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 2%;
+    font-size: 30px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+
+}
+
+.background {
+    margin-top: -40%;
+    background-size: 50%;
+}
+
+.pos {
+    text-align: center;
+
+}
+
+
+.logonBox {
+    margin-bottom: 100%;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    background-color: green;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+}
+
+
+/* Code below makes sure that the border is the same size in small and large*/
+
+@media screen and (max-width: 767px) {
+    .loginWrapper {
+        padding-top: 43px;
+        /*margin-left: 10%;
+        margin-right: 10%;*/
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .loginWrapper {
+        padding-top: 43px;
+
+        /*        margin-left: 20%;
+        margin-right: 20%;*/
+    }
+}
+
+/*EVERYTHING BELOW IS HEADERO PTIONS*/
+
 header {
     position: fixed;
     width: 100%;
     z-index: 1;
-    top: 0px;
 }
 
 /*How the topmenu looks*/
@@ -14,11 +84,10 @@ ul.topmenu {
     overflow: hidden;
     font-weight: bold;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 /*Hides the list when not hovered over in small scale*/
+
 ul.topmenu li {
     display: none;
     text-align: center;
@@ -27,6 +96,7 @@ ul.topmenu li {
     border-left: 1px solid #2E312C;
     padding: 6px 16px;
 }
+
 /*Makes the first item in the list ("menu") visible to be able to hover over it in small screen*/
 
 ul.topmenu li:first-child {
@@ -37,45 +107,12 @@ ul.topmenu li:first-child {
 
 ul.topmenu li:first-child img {
     height: 25px;
-    width: 20%;
     position: relative;
     padding-bottom: 4px;
     padding-left: 4px;
     transform-origin: 65% 30%;
     transition-duration: 1s;
 }
-
-/*For everything that needs to change color when hovered over*/
-
-.hoverEffekt {
-    background-color: darkgreen;
-}
-
-/*styling each list item with a link*/
-
-ul.topmenu li a {
-    display: block;
-    text-decoration: none;
-    color: black;
-}
-
-/* styling of table */
-td {
-    text-align: center;
-    
-}
-tr{
-    margin: auto;
-}
-
-td {
-    width: 14.28%;
-}
-
-table{
-    width: 100%;
-}
-
 
 /*This next @media is to make the navbar into big screen mdoe (1280px or above)*/
 
