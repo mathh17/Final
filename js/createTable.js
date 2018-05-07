@@ -201,9 +201,11 @@ $(document).ready(function () {
         $('#dynamicTable').slideUp(400).slideDown(400);
         buildTable();
     });
-
-    // $('.mainTable').stacktable();
-    // $('.mainTable').stackcolumns();
+    
+  /*  $('#Mandag').hide();
+    $('.innerMandag').hide();
+    $('.mainTable').stacktable();
+    $('.mainTable').stackcolumns();*/
 });
 
 
