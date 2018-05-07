@@ -1,37 +1,92 @@
+/*Styles the sidenavigation*/
 .sidenav {
     height: 100%;
-    width: 13%;
+    width: 16.66667%;
     position: fixed;
     top: 0;
     left: 0;
+    font-family: 'IBM Plex Mono', monospace;
     background: rgba(0,128,0,0.1);
     overflow-x: hidden;
     padding-top: 44px;
 }
 
-.sidenav a {
-    padding: 6px 8px 6px 16px;
+/*styles the sidenav's list items*/
+.sidenav li {
+    width: 600%;
     text-decoration: none;
-    font-size: 25px;
-    color: black;
+    text-align: center;
+    font-size: 20px;
     display: block;
     border-bottom: solid;
     border-color: rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
 }
 
-
-.sidenav a:hover {
-    background-color: rgba(0,128,0,0.2);
+/*Sets the a (log af)'s color to black*/
+.sidenav li a {
+    color: black;
 }
 
-.main {
-    width: 100%;
-    background-image: url(../pictures/barbell-crossfit-gym-841131.jpg);
-    
-    margin-left: 20%; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+/*Hover effect for the index sidenav*/
+.hoverEffektIndex {
+    background-color: rgba(0,128,0,0.15);
+    color: black;
 }
+
+/*Styles content*/
+.content {
+    display: block;
+    font-size: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    padding-left: 17.66667%;
+}
+
+/*Sets the classes beskeder and mineBookninger to display properly*/
+.beskeder, .mineBookninger {
+    display: inline-block;
+    padding-top: 80px;
+}
+
+/*Gives the div's inside beskeder a little bottom padding*/
+.beskeder div {
+    padding-bottom: 10px;
+}
+
+/**/
+.beskederBoks{
+    position: absolute;
+    width: inherit;
+}
+
+/*Gives all h6's a border at the bottom*/
+h6 {
+    border-bottom: 1.5px gray dotted;
+}
+
+/**/
+.fb-page{
+    float: right;
+    margin-right: 5px;
+}
+
+/*Sets mineBookninger to not display in order to not make that and beskeder overlap*/
+.mineBookninger {
+    display: none;
+}
+
+/*Sets the first child in mineBookninger to sit right*/
+.mineBookninger div:first-child {
+    position: absolute;
+}
+
+/*Sets the last child in right position and styles it*/
+.mineBookninger div:last-child {
+    float: right;
+    text-align: center;
+}
+
 body{
     100%;
 }

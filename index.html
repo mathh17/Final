@@ -10,6 +10,19 @@
 </head>
 
 <body>
+    
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v3.0';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
     <header>
         <ul class="medium-12 topmenu">
             <li>MENU<img src="pictures/arrowbig.png"></li>
@@ -25,15 +38,41 @@
         </ul>
     </header>
 
-    <div class="sidenav border">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
+    <div class="sidenav">
+        <ul class="small-2 large-2">
+            <li class="beskederBtn">Beskeder</li>
+            <li class="mineBookningerBtn">Mine bookninger</li>
+            <li><a href="index.html">log af</a></li>
+        </ul>
     </div>
-    <div class="main">
-        <p>This sidebar is of full height (100%) and always shown.</p>
-        <p>Scroll down the page to see the result.</p>
+
+    <div class="content">
+        <div class="beskeder small-12 large-12">
+            <div class="beskederBoks">
+                <div class="gamleBeskeder small-11 large-8">
+                    <h6>Gamle beskeder</h6>
+                    <p>Ingen gamle beskeder.</p>
+                </div>
+
+                <div class="nyeBeskeder small-11 large-8">
+                    <h6>Nye beskeder</h6>
+                    <p>Ingen nye beskeder.</p>
+                </div>
+            </div>
+
+            <div class="fb-page hide-for-small large-3" data-href="https://www.facebook.com/www.godform.dk/?hc_ref=ARR472NWMX353lcmQTXXHk3cAHTH3A-64pDW8Gz-x6rRs_6cFksl1w0MqUTuVZriXDs&amp;fref=nf" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/www.godform.dk/?hc_ref=ARR472NWMX353lcmQTXXHk3cAHTH3A-64pDW8Gz-x6rRs_6cFksl1w0MqUTuVZriXDs&amp;fref=nf" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/www.godform.dk/?hc_ref=ARR472NWMX353lcmQTXXHk3cAHTH3A-64pDW8Gz-x6rRs_6cFksl1w0MqUTuVZriXDs&amp;fref=nf">God Form Ringe</a></blockquote>
+            </div>
+        </div>
+
+        <div class="mineBookninger small-12 large-12">
+            <div class="small-6 large-6">
+                <h6>Mine bookninger</h6>
+                <p>Manipulate to show actual bookings</p>
+            </div>
+
+            <div class="small-4 large-4">Synkroniser dine hold bookinger direkte ind i din kalender (Outlook, IPhone, GMail osv). <br> Klik <a href="index.html">her</a></div>
+        </div>
     </div>
 
 </body>
@@ -41,3 +80,4 @@
 <link rel="stylesheet" href=""><script src=""></script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="js/navBar.js"></script>
+<script src="js/index.js"></script>
