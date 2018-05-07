@@ -14,6 +14,7 @@ var date = moment().format("MMM Do YY");
 var day;
 var month;
 var currentWeek = 0;
+var modal = document.getElementById('myModal');
 
 
 function loadTeamArray() {
@@ -110,7 +111,7 @@ function buildTable() {
 
         for (e = 0; e < teams[i].length; e++) {
             $('.inner' + weekday[i]).append(
-                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + '">' +
+                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + ' calendarSquare">' +
                 '</td></tr>'
             );
 
@@ -145,6 +146,30 @@ function buildTable() {
             console.log($(this).closest('td').attr('class'));
         }
     });
+    
+      $('.calendarSquare').click(function(){
+    modal.style.display = "block";
+    selectedName = $(this).closest('td').attr('class').split('-')[0];
+  
+        for (var i=0; i < teams.length; i++){
+            for (var j=0; j< teams[i].length; j++)
+                {
+                    if (teams[i][j].teamName == selectedName){
+                        var selectedTeam = teams[i][j];
+                    }
+                }
+        }
+        
+   $('.modal-content').html(selectedName);
+    $('.modal-content').html(selectedTeam.teamTrainer);
+});
+    
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 
