@@ -7,6 +7,7 @@ var teamLørdagFormiddag = [];
 var teamSøndagFormiddag = [];
 var teams = [teamMandagFormiddag, teamTirsdagFormiddag, teamOnsdagFormiddag, teamTorsdagFormiddag, teamFredagFormiddag, teamLørdagFormiddag, teamSøndagFormiddag];
 
+var user = JSON.parse(localStorage.getItem('loggedInUser'));
 
 var weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag'];
 var week = moment().week();
@@ -145,6 +146,7 @@ function buildTable() {
             $(this).addClass('rotate'); //add the class to the clicked element
             console.log($(this).closest('td').attr('class'));
         }
+        console.log(user);
     });
     
       $('.calendarSquare').click(function(){
