@@ -122,7 +122,7 @@ function buildTable() {
             //Adds table with teams
             if (teams[i][e] !== undefined) {
                 //teamname
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(teams[i][e].teamName);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
                 //start and end
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd);
                 //team duration

@@ -25,7 +25,9 @@ body {
 /*Fixes the header to the top of the page*/
 
 
-
+.teamName {
+    background-color: red;
+}
 
 .content {
     background-image: url("../pictures/crossfit.jpg");
