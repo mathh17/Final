@@ -17,7 +17,7 @@ var month;
 var currentWeek = 0;
 var modal = document.getElementById('myModal');
 var teamCalendar = [];            
-
+var deltagerAntal = 0;
 
 
 function loadTeamArray() {
@@ -41,9 +41,7 @@ for (var i = 0; i < lsTeamsArray.length; i++) {
                 teams[j].push(lsTeamsArray[i]);
             }
     }
-    console.log(lsTeamsArray);
-    console.log(weekDay[0]);
-    console.log(teams);
+    
 }
 
 function buildTable() {
@@ -121,6 +119,11 @@ function buildTable() {
             
             //Adds table with teams
             if (teams[i][e] !== undefined) {
+                
+                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]])
+                deltagerAntal = teamCalendar[e][2].length;
+                
+                
                 //teamname
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
                 //start and end
@@ -132,11 +135,10 @@ function buildTable() {
                 //Trainer
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamTrainer);
                 //Participants
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> 0/' + teams[i][e].teamMaxParticipants);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>'+ deltagerAntal +'/' + teams[i][e].teamMaxParticipants);
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
                 
-                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]])
                 
             }
 
@@ -150,19 +152,22 @@ function buildTable() {
         var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];
         if ($(this).hasClass('rotate') == true) {
             $(this).removeClass('rotate');
-            
-            console.log(clickedTeam);
+            for(var i = 0; i < teamCalendar.length; i++){
+                if(teamCalendar[i][0] == clickedTeam){
+                    teamCalendar[i][2].pop(user);
+                    localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                }
+            }
         } else {
             for(var i = 0; i < teamCalendar.length; i++){
                 if(teamCalendar[i][0] == clickedTeam){
-                    teamCalendar[i][2].push();
+                    teamCalendar[i][2].push(user);
+                    localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
                 }
             }
-            console.log(teamCalendar);
             $(this).addClass('rotate'); //add the class to the clicked element
             console.log($(this).closest('td').attr('class'));
         }
-        console.log(user);
     });
     
       $('.calendarSquare').click(function(){

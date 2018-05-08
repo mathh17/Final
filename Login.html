@@ -142,7 +142,7 @@
             if (userNameInput == user.email && passwordInput == user.password) {
                 localStorage.setItem('loggedInUser', JSON.stringify(user));
                 alert('Logged in as ' + user.first_name + ' ' + user.last_name);
-                window.location.replace('index.html');
+                window.location.assign("index.html");
                 console.log(userNameInput);
                 break;
             }

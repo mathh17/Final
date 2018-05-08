@@ -22,6 +22,7 @@ body {
     width: 100%;
 
 }
+
 /*Fixes the header to the top of the page*/
 
 
@@ -38,7 +39,7 @@ body {
     margin: auto;
     width: 100%;
     margin-top: 44px;
-    height: 1288px; 
+    height: 1288px;
 }
 
 .godForm {
@@ -47,10 +48,13 @@ body {
 }
 
 .buttonLeft {
+    float: left; 
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;
-    color: black;
+    color: white;
+    text-shadow: 1px 1px black;
+
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -62,7 +66,9 @@ body {
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;
-    color: black;
+    color: white;
+    text-shadow: 1px 1px black;
+
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -74,7 +80,9 @@ body {
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;
-    color: black;
+    color: white;
+    text-shadow: 1px 1px black;
+
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -86,7 +94,9 @@ body {
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;
-    color: black;
+    color: white;
+    text-shadow: 1px 1px black;
+
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -97,4 +107,3 @@ body {
 .table {
     opacity: ;
 }
-

@@ -27,6 +27,7 @@ ul.topmenu li {
     text-align: center;
     text-decoration: none;
     color: white;
+    text-shadow: 1px 1px black;
     border-left: 1px solid #2E312C;
     padding: 6px 16px;
     letter-spacing: 2px;
