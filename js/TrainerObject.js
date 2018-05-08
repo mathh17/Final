@@ -5,7 +5,7 @@ function TrainerObject(trainerName, trainerPicture, trainerDescription ){
 }
         
         var sørenPicture = new Image();
-        sørenPicture.src = "../Udklip5.png";
+        sørenPicture.src = "../pictures/pexels-photo-703009.jpeg";
         
         var søren = new TrainerObject(
             "Søren", 
@@ -14,7 +14,7 @@ function TrainerObject(trainerName, trainerPicture, trainerDescription ){
         );
 
         var katrinePicture = new Image();
-        katrinePicture.src = "../Udklip5.png";
+        katrinePicture.src = "../pictures/katrine.jpeg";
         
         var katrine = new TrainerObject(
             "Katrine", 
@@ -23,7 +23,7 @@ function TrainerObject(trainerName, trainerPicture, trainerDescription ){
         );
 
         var andersPicture = new Image();
-        andersPicture.src = "../Udklip5.png";
+        andersPicture.src = "../pictures/bodybuilder-weight-training-stress-38630.jpeg";
         var anders = new TrainerObject(
             "Anders",
             andersPicture,

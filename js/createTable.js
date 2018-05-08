@@ -15,6 +15,8 @@ var day;
 var month;
 var currentWeek = 0;
 var modal = document.getElementById('myModal');
+var teamCalendar = [];            
+
 
 
 function loadTeamArray() {
@@ -115,6 +117,7 @@ function buildTable() {
                 '</td></tr>'
             );
 
+            
             //Adds table with teams
             if (teams[i][e] !== undefined) {
                 //teamname
@@ -131,17 +134,30 @@ function buildTable() {
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> 0/' + teams[i][e].teamMaxParticipants);
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
+                
+                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]])
+                
             }
 
         }
     }
 
+    console.log(teamCalendar);
+    
     $(".cube").click(function () {
         //use a class, since your ID gets mangled
+        var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];
         if ($(this).hasClass('rotate') == true) {
             $(this).removeClass('rotate');
-            console.log($(this).closest('td').attr('class'));
+            
+            console.log(clickedTeam);
         } else {
+            for(var i = 0; i < teamCalendar.length; i++){
+                if(teamCalendar[i][0] == clickedTeam){
+                    teamCalendar[i][2].push();
+                }
+            }
+            console.log(teamCalendar);
             $(this).addClass('rotate'); //add the class to the clicked element
             console.log($(this).closest('td').attr('class'));
         }
