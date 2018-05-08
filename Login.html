@@ -127,6 +127,7 @@
     function checkForUser() {
         var userNameInput = document.getElementById('username').value;
         var passwordInput = document.getElementById('password').value;
+        
 
         userNameInput = userNameInput.toString();
         userNameInput = userNameInput.toLowerCase();
@@ -139,8 +140,9 @@
             var user = userData[index];
 
             if (userNameInput == user.email && passwordInput == user.password) {
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
                 alert('Logged in as ' + user.first_name + ' ' + user.last_name);
-                window.location.replace('index.html')
+                window.location.replace('index.html');
                 console.log(userNameInput);
                 break;
             }

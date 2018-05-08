@@ -10,7 +10,7 @@
             transform-origin: 60% 62%;
             transform-style: preserve-3d;
             transition: 1.4s all;
-            z-index: 1;
+            z-index: 0;
         }
 
         .front {
