@@ -25,8 +25,7 @@ body {
 
 /*Fixes the header to the top of the page*/
 
-
-.calendarSquare{
+.calendarSquare {
     background-color: whitesmoke;
 }
 
@@ -36,24 +35,33 @@ body {
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 1px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 5px;
     margin-bottom: 2px;
 }
 
-.teamTime{
+.teamTime {
     font-size: 12px;
 
 }
 
-.teamDuration{
+.teamDuration {
     font-style: italic;
     font-size: 10px;
 }
-.lokation{
+
+.lokation {
+    font-size: 12px;
+
     letter-spacing: 1px;
 }
 
+.teamTrainer {
+    font-size: 12px;
+}
+/*.deltagere{
+    src: url(../pictures/medlemmer.PNG);
+}*/
 .content {
     background-image: url("../pictures/crossfit.jpg");
     background-repeat: no-repeat;
@@ -72,7 +80,7 @@ body {
 }
 
 .buttonLeft {
-    float: left; 
+    float: left;
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;

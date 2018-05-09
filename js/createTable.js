@@ -142,7 +142,7 @@ function buildTable() {
                 //Location
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="lokation">' + teams[i][e].teamLocation + '</div>');
                 //Trainer
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div>' + teams[i][e].teamTrainer + '</div>');
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
                 //Participants
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants + '</div>');
                 //participate button
