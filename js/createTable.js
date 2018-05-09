@@ -16,7 +16,7 @@ var day;
 var month;
 var currentWeek = 0;
 var modal = document.getElementById('myModal');
-var teamCalendar;            
+var teamCalendar = JSON.parse(localStorage.getItem('teamCalendar'));   
 var deltagerAntal = 0;
 
 
@@ -27,7 +27,7 @@ function loadTeamArray() {
         lsTeamsArray = new Array();
         lsTeamsArray = JSON.parse(lsTeam);
         $(lsTeamsArray).each(function (index, data) {
-            console.log("index: " + index + ", data: " + data);
+        console.log("index: " + index + ", data: " + data);
         });
     }
 }
@@ -120,18 +120,29 @@ function buildTable() {
             
             //Adds table with teams
             if (teams[i][e] !== undefined) {
+                var inTable = false;
                 if(teamCalendar == null){
                 teamCalendar = new Array();
                 
                 teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
-                
                  
                 }
+                /*for(var k = 0; k < teams.length; k++){*/
+                for (var j = 0; j < teamCalendar.length; j++){
+                    
+                if(teamCalendar[j][0].toString() == teams[i][e].teamName + '-' + day + month + '-' + e){
+                    inTable = true;
+                    deltagerAntal = teamCalendar[j][2].length;
+                    break;
+                    }
+                }
                 
-                else{
+                if (inTable == false) {
                     teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
                     
                 }
+                /*}*/
+                
                 
                 //teamname
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
@@ -144,17 +155,19 @@ function buildTable() {
                 //Trainer
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamTrainer);
                 //Participants
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> <span class="deltagerCounter">'+ deltagerAntal +'</span>/' + teams[i][e].teamMaxParticipants);
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
+                
+                /*$('.deltagerCounter').text(teamCalendar[i][2].length);*/
                 
                 
             }
 
         }
+        
     }
 
-    console.log(teamCalendar);
     
     $(".cube").click(function () {
         //use a class, since your ID gets mangled
@@ -172,16 +185,20 @@ function buildTable() {
         } else {
             for(var i = 0; i < teamCalendar.length; i++){
                 if(teamCalendar[i][0] == clickedTeam){
-                    console.log(teamCalendar);
-                    console.log(user);
-                    teamCalendar[i][2].push(user);
+                    if(checkDeltager(i) == false){
+                    teamCalendar[i][2].splice(0,0,user);
                     localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
                     /*deltagerAntal = teamCalendar[i][2].length;*/
                     console.log($(this).closest('.deltagerCounter'));
                     $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
+                    $(this).addClass('rotate'); //add the class to the clicked element
+                    }
+                    else{
+                        alert('du deltager allerede');
+                    }
                 }
             }
-            $(this).addClass('rotate'); //add the class to the clicked element
+            
             console.log($(this).closest('td').attr('class'));
         }
     });
@@ -199,9 +216,11 @@ function buildTable() {
                 }
         }
         
-   $('.modal-content').html(selectedName);
+   /*$('.modal-content').html(selectedName);*/
     $('.modal-content').html(selectedTeam.teamTrainer);
 });
+    
+    checkCalendar();
     
 }
 
@@ -229,6 +248,31 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+function updateDeltagere(){
+    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
+}
+
+function checkDeltager(i){
+   
+        for (var j = 0; j < teamCalendar[i][2].length; i++){
+        if(teamCalendar[i][2][j].email == user.email){
+            return true;
+        }
+    }
+    return false;
+}
+
+function checkCalendar(){
+    for(var i = 0; i < teamCalendar.length; i++){
+        for(var j = 0; j < teamCalendar[i][2].length; j++){
+            console.log(teamCalendar[i][0].toString());
+                if(teamCalendar[i][2][j].email == user.email){
+                    $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate'); 
+                    console.log(teamCalendar[i][2][j].email);
+                }
+        }
+     }
+}
 
 $(document).ready(function () {
     for (var i = 0; i < teams.length; i++) {
@@ -238,10 +282,11 @@ $(document).ready(function () {
     }
 
     buildTable();
+    
     /*for(var i )
     deltagerAntal = teamCalendar[i][2].length;
 */
-
+    
   
     // Week + Buttons
     $(".buttonMid").text('UGE ' + week.toString());
