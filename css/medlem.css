@@ -1,18 +1,39 @@
-body{
+body {
     100%;
 }
-#startHours{
-    width: 50px;
+
+
+.content {
+    margin-top: 54px;
+    font-size: 20px;
 }
-#startMinutes{
-    width: 50px;
-}#endHours{
-    width: 50px;
+
+.medlemsoplysninger {
+    float: left;
+    margin-left: 5%;
+    padding: 1%;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
 }
-#endMinutes{
-    width: 50px;
+
+.medlemsoplysninger div:first-of-type {
+    float: right;
 }
-.checks{
-    
+
+.forRight {
+    float: right;
+    margin-right: 5%;
 }
-/*OPRETHOLD CSS SLUT*/
+
+.kodeord {
+    padding: 2%;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+.medlemskab {
+    padding: 2%;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+h6 {  
+    border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+}
