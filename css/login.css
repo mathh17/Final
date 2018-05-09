@@ -13,16 +13,6 @@
     border-color: rgba(0, 0, 0, 0.2);
 }
 
-p {
-    color: white;
-    text-align: center;
-    font-weight: 900;
-    margin-bottom: 2%;
-    font-size: 30px;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-
-}
-
 .background {
     margin-top: -40%;
     background-size: 50%;
@@ -35,6 +25,8 @@ p {
 
 
 .logonBox {
+        font-family: 'IBM Plex Mono', monospace;
+
     margin-bottom: 100%;
     border: 1px solid;
     border-color: rgba(0, 0, 0, 0.3);

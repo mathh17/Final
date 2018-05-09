@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
     <script src="/lib/TweenJS/tweenjs.js"></script>
     <script src="/lib/EaselJS/easeljs.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -27,9 +28,6 @@
         <canvas id="canvas"></canvas>
         <div class="row background">
             <div class="large-4 large-offset-4 small-10 small-offset-1 centered">
-                <div logonBox>
-                    <p>Log Ind</p>
-                </div>
                 <form>
                     <label for="username"></label>
                     <input type="email" placeholder="Email: eks@eksempelmail.dk" id="username" required />
@@ -38,7 +36,7 @@
                     <input type="password" placeholder="Kodeord" id="password" required />
                     <div class="">
                         <div class="pos">
-                            <input class="logonBox" type="submit" value="Log på" onclick="checkForUser() " />
+                            <input class="logonBox" type="submit" value="LOG IND" onclick="checkForUser() " />
                         </div>
                     </div>
                 </form>
@@ -68,7 +66,7 @@
         container.alpha = 1;
 
 
-       var bmp = new createjs.Bitmap('pictures/crosfit.jpg');
+        var bmp = new createjs.Bitmap('pictures/crosfit.jpg');
         container.addChild(bmp);
         bmp.scaleX = 0.5;
         bmp.scaleY = 0.5;
@@ -88,7 +86,7 @@
         bmp2.webkitImageSmoothingEnabled = bmp2.mozImageSmoothingEnabled = true;
         bmp2.snapToPixelEnabled = true;
 
- 
+
         createjs.Tween.get(bmp).to({
             x: 0,
             alpha: 1
@@ -96,7 +94,7 @@
             scaleX: 0.8,
             scaleY: 0.8,
             x: -200
-        },10000).wait(2000).to({
+        }, 10000).wait(2000).to({
             x: -500,
             alpha: 0
         }, 1000);
@@ -111,13 +109,13 @@
         stage.addChild(container);
         stage.update();
     }
-    
- /*   $(function(){
-        $(window).scroll(function(){
-            $('#canvas').slideUp();
-            $('.background').css("margin-top", "10%");
-        });
-    });*/ //Ellers fed funktion der ved scroll slide en div op
+
+    /*   $(function(){
+           $(window).scroll(function(){
+               $('#canvas').slideUp();
+               $('.background').css("margin-top", "10%");
+           });
+       });*/ //Ellers fed funktion der ved scroll slide en div op
 
 
     //Logon options below
@@ -127,7 +125,7 @@
     function checkForUser() {
         var userNameInput = document.getElementById('username').value;
         var passwordInput = document.getElementById('password').value;
-        
+
 
         userNameInput = userNameInput.toString();
         userNameInput = userNameInput.toLowerCase();
