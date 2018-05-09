@@ -16,8 +16,9 @@ var day;
 var month;
 var currentWeek = 0;
 var modal = document.getElementById('myModal');
-var teamCalendar = [];            
+var teamCalendar;            
 var deltagerAntal = 0;
+
 
 
 function loadTeamArray() {
@@ -119,10 +120,18 @@ function buildTable() {
             
             //Adds table with teams
             if (teams[i][e] !== undefined) {
+                if(teamCalendar == null){
+                teamCalendar = new Array();
                 
-                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]])
-                deltagerAntal = teamCalendar[e][2].length;
+                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
                 
+                 
+                }
+                
+                else{
+                    teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
+                    
+                }
                 
                 //teamname
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
@@ -135,7 +144,7 @@ function buildTable() {
                 //Trainer
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamTrainer);
                 //Participants
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>'+ deltagerAntal +'/' + teams[i][e].teamMaxParticipants);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants);
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
                 
@@ -155,14 +164,21 @@ function buildTable() {
             for(var i = 0; i < teamCalendar.length; i++){
                 if(teamCalendar[i][0] == clickedTeam){
                     teamCalendar[i][2].pop(user);
+                    /*deltagerAntal = teamCalendar[i][2].length;*/
                     localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
                 }
             }
         } else {
             for(var i = 0; i < teamCalendar.length; i++){
                 if(teamCalendar[i][0] == clickedTeam){
+                    console.log(teamCalendar);
+                    console.log(user);
                     teamCalendar[i][2].push(user);
                     localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                    /*deltagerAntal = teamCalendar[i][2].length;*/
+                    console.log($(this).closest('.deltagerCounter'));
+                    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
                 }
             }
             $(this).addClass('rotate'); //add the class to the clicked element
@@ -217,12 +233,14 @@ function getRandomInt(max) {
 $(document).ready(function () {
     for (var i = 0; i < teams.length; i++) {
         teams[i].sort(dynamicSort('teamStart'));
+        
+        
     }
 
     buildTable();
-
-
-
+    /*for(var i )
+    deltagerAntal = teamCalendar[i][2].length;
+*/
 
   
     // Week + Buttons
