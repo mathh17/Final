@@ -265,13 +265,14 @@ function checkDeltager(i){
 function checkCalendar(){
     for(var i = 0; i < teamCalendar.length; i++){
         for(var j = 0; j < teamCalendar[i][2].length; j++){
-            console.log(teamCalendar[i][0].toString());
                 if(teamCalendar[i][2][j].email == user.email){
-                    $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate'); 
+                    $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate');
                     console.log(teamCalendar[i][2][j].email);
                 }
         }
+        $('.' + teamCalendar[i][0].toString()).find('.deltagerCounter').text(teamCalendar[i][2].length);
      }
+    
 }
 
 $(document).ready(function () {
