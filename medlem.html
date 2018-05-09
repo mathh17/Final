@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 </head>
 
 <body>
- <header>
+    <header>
         <ul class="medium-12 topmenu">
             <li>MENU<img src="pictures/arrowbig.png"></li>
             <li><img src="pictures/godFormLogo.png"></li>
@@ -24,9 +25,47 @@
             </div>
         </ul>
     </header>
-    
+
+    <div class="content">
+        <div class="medlemsoplysninger small-5 large-5">
+            <h6>Medlemsoplysninger</h6>
+            Medlemsnummer <input type="text" placeholder="Medlemsnummer" id="medlemsNummer"> Navn <input type="text" placeholder="Dit Navn Her" id="ditNavn"> Adresse <input type="text" placeholder="EnGade 12" id="adresse">
+            <div class="small-5 large-5">by <input type="text" placeholder="Byen" id="by"> </div>
+            <div class="small-5 large-5">Postnummer <input type="Number" placeholder="5222" id="postNummer"></div>
+            E-mail <input type="email" placeholder="eks@eksempelmail.dk" id="eMail" /> Telefon <input type="Number" placeholder="12345678" id="telefon">
+            <input class="checks" id="Nyhedsbrev" type="checkbox"> Modtag nyhedsbreve og andre generelle informationer.
+        </div>
+
+        <div class="forRight small-5 large-5">
+            <div class="kodeord">
+                <h6>Kodeord</h6>
+                Nuværende kodeord <input type="password" name="Nuværende"> Nyt kodeord <input type="password" name="nytKodeord"> Gentag nyt kodeord <input type="password" name="gentag">
+            </div>
+            <br>
+            <div class="medlemskab">
+                <h6>Medlemskaber</h6>
+                <table>
+                    <tr>
+                        <th>Kontakt</th>
+                        <th>Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Much kontrakt</td>
+                        <td>Very periode</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="small-12 large-12gemPosition">
+            <input type="submit" id="gemOplysninger" value="Gem">
+        </div>
+    </div>
+
 </body>
+
 </html>
-<link rel="stylesheet" href=""><script src=""></script>
+<link rel="stylesheet" href="">
+<script src=""></script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="js/navBar.js"></script>

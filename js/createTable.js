@@ -147,15 +147,15 @@ function buildTable() {
                 //teamname
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
                 //start and end
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamStart + '-' + teams[i][e].teamEnd);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTime">' + teams[i][e].teamStart + ' - ' + teams[i][e].teamEnd + '</div>');
                 //team duration
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamDuration + ' min');
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamDuration">' + teams[i][e].teamDuration + ' min' + '</div>');
                 //Location
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamLocation);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="lokation">' + teams[i][e].teamLocation + '</div>');
                 //Trainer
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br>' + teams[i][e].teamTrainer);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
                 //Participants
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<br> <span class="deltagerCounter">'+ deltagerAntal +'</span>/' + teams[i][e].teamMaxParticipants);
+                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants + '</div>');
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
                 
