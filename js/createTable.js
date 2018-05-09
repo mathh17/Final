@@ -302,7 +302,7 @@ $(document).ready(function () {
         
         
         $('#dynamicTable').slideUp(400).slideDown(400);
-        buildTable();
+        setTimeout(buildTable, 400);
     });
     $(".buttonMidLeft").click(function () {
         if (currentWeek > 0)
@@ -312,7 +312,7 @@ $(document).ready(function () {
         
         $(".buttonMid").text('UGE ' + (week + currentWeek).toString());
         $('#dynamicTable').slideUp(400).slideDown(400);
-        buildTable();
+        setTimeout(buildTable, 400);
     });
 
 
