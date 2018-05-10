@@ -1,5 +1,5 @@
 var userData = 
-[{"id":1,"first_name":"Lexie","last_name":"Bruggen","email":"lbruggen0@house.gov","password":"46FXXlvPyO","phone number":"2902221880","address":"272 Sundown Trail"},
+[{"id":1,"first_name":"Bruger","last_name":"Bruger","email":"bruger@godform.dk","password":"bruger","phone number":"2902221880","address":"272 Sundown Trail"},
 {"id":2,"first_name":"Guinevere","last_name":"Riddel","email":"griddel1@mayoclinic.com","password":"DLiJu6X","phone number":"5176064943","address":"672 Arapahoe Trail"},
 {"id":3,"first_name":"Mandi","last_name":"Jirusek","email":"mjirusek2@example.com","password":"Zlsm4GFM2v","phone number":"3744195226","address":"82 Browning Circle"},
 {"id":4,"first_name":"Clem","last_name":"Kitchinham","email":"ckitchinham3@aol.com","password":"XiOXxN","phone number":"3928633762","address":"88172 Hazelcrest Terrace"},

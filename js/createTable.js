@@ -284,13 +284,7 @@ $(document).ready(function () {
         
     }
     
-    $('.opretHold').hide();
-    
-    if(user != null){
-    if(user.email == 'admin@godform.dk'){
-      $('.opretHold').show();  
-    }
-    }
+
     buildTable();
     
     /*for(var i )
