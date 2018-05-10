@@ -50,17 +50,35 @@ function buildTable() {
     $('#dynamicTable').append('<table cellspacing="0"></table>');
     $('#dynamicTable table').addClass('mainTable');
     $('.mainTable').append('<thead></thead>' +
-        '<tbody></tbody>');
+        '<tbody class="morgenText"></tbody>');
 
     var buttonHTML = '<br><div align="center" class="cube"><div class="front"> DELTAG </div><div class="bottom"><img class="knapImage" src="pictures/godForm.png"></div><div class="back"> AFMELD </div><div class="top"></div></div><div align="center"> <div class="shadow"></div></div>';
 
     $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
-
+                $('.mainTable').append('<tbody class="morgen"></tbody>');
+                $('.morgenText').append('<td colspan="7">Morgen</td>');
     //Table Header
-    for (var i = 0; i < weekday.length; i++) {
+    for (var i = 0; i < weekday.length*2; i++) {
+        if(i<7){
         $('#tableDates').append('<th id="' + weekday[i] + '" class="headerTable"></th>');
-        $('tbody').append('<td class="inner' + weekday[i] + '" class="innerTable"></td>');
+        $('.morgen').append('<td class="inner' + weekday[i] + '" class="innerTable"></td>');
+        }
+        if(i==6)
+            {
+                
+               $('.mainTable').append('<tbody class="eftermiddagText"></tbody>');
+                $('.eftermiddagText').append('<td colspan="7">Eftermiddag</td>');
+                $('.mainTable').append('<tbody class="eftermiddag"></tbody>');
+                
+            }
+        
+        if(i>6){
+        $('.eftermiddag').append('<td class="innerEftermiddag' + weekday[i-7] + '" class="innerTable"></td>');
+        }
     }
+    
+    
+
 
 
     //Adds date to table
@@ -112,10 +130,20 @@ function buildTable() {
 
 
         for (e = 0; e < teams[i].length; e++) {
+            console.log(parseInt(teams[i][e].teamStart.split(":")[0]))
+            if(parseInt(teams[i][e].teamStart.split(":")[0])< 12){
             $('.inner' + weekday[i]).append(
                 '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + ' calendarSquare">' +
                 '</td></tr>'
             );
+                }
+            else{
+            $('.innerEftermiddag' + weekday[i]).append(
+                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + ' calendarSquare">' +
+                '</td></tr>'
+            );
+                }
+
 
             
             //Adds table with teams
