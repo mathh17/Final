@@ -4544,7 +4544,7 @@ table {
   table tr td,
   table tfoot tr td {
     display: table-cell;
-    line-height: 1.125em; }
+    line-height: 1.1em; }
 
 /* Image Thumbnails */
 .th {
