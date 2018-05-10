@@ -25,11 +25,6 @@ body {
 
 /*Fixes the header to the top of the page*/
 
-.calendarSquare:nth-child(even) {
-    background-color: red;
-}.calendarSquare:nth-child(odd) {
-    background-color: blue;
-}
 
 .teamName {
     text-transform: uppercase;

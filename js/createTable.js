@@ -156,9 +156,11 @@ function buildTable() {
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
                 //Participants
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants + '</div>');
+                
+                if(user != null){
                 //participate button
                 $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
-                
+                }
                 /*$('.deltagerCounter').text(teamCalendar[i][2].length);*/
                 
                 
@@ -262,7 +264,7 @@ function checkDeltager(i){
     return false;
 }
 
-function checkCalendar(){
+function checkCalendar()    {
     for(var i = 0; i < teamCalendar.length; i++){
         for(var j = 0; j < teamCalendar[i][2].length; j++){
                 if(teamCalendar[i][2][j].email == user.email){
@@ -281,7 +283,14 @@ $(document).ready(function () {
         
         
     }
-
+    
+    $('.opretHold').hide();
+    
+    if(user != null){
+    if(user.email == 'admin@godform.dk'){
+      $('.opretHold').show();  
+    }
+    }
     buildTable();
     
     /*for(var i )
