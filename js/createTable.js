@@ -19,6 +19,9 @@ var modal = document.getElementById('myModal');
 var teamCalendar = JSON.parse(localStorage.getItem('teamCalendar'));
 var deltagerAntal = 0;
 
+var x = window.matchMedia("(max-width: 700px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction)
 
 
 function loadTeamArray() {
@@ -249,6 +252,7 @@ function buildTable() {
     });
 
     checkCalendar();
+    myFunction();
 
 }
 
@@ -303,34 +307,26 @@ function checkCalendar() {
 
 }
 
-$(document).ready(function () {
-    for (var i = 0; i < teams.length; i++) {
-        teams[i].sort(dynamicSort('teamStart'));
-
-
-    }
-
-
-    buildTable();
-    var x = window.matchMedia("(max-width: 700px)")
-    myFunction(x) // Call listener function at run time
-    x.addListener(myFunction)
 
     /*for(var i )
     deltagerAntal = teamCalendar[i][2].length;
     
     // FUNCTION FOR RESPONSIVE TABLE
-*/  function myFunction(x) {
+*/  function myFunction() {
     var day = new Date().getDay() - 1;
     
     if (x.matches) {// If media query matches
         $('.godForm').hide();
         for(var i = 0; i < weekday.length; i++){
-            if(weekday[i] == weekday[day]){
+            if(weekday[i] == weekday[day] && currentWeek == 0){
                 $('#' + weekday[day]).append();
                 $('#' + weekday[day]).show();
                 $('.inner'+weekday[day]).show();
                 $('.innerEftermiddag' + weekday[day]).show();
+            } else if (currentWeek !== 0 && i == 0){
+                $('#' + weekday[0]).show();
+                $('.inner'+weekday[0]).show();
+                $('.innerEftermiddag' + weekday[0]).show();
             }
             else {
                 $('#' + weekday[i]).hide();
@@ -348,6 +344,18 @@ $(document).ready(function () {
         
     }
 }
+
+
+$(document).ready(function () { 
+    for (var i = 0; i < teams.length; i++) {
+        teams[i].sort(dynamicSort('teamStart'));
+
+
+    }
+
+
+    buildTable();
+    
     
     // Week + Buttons
     $(".buttonMid").text('UGE ' + week.toString());
@@ -363,6 +371,7 @@ $(document).ready(function () {
 
         $('#dynamicTable').slideUp(400).slideDown(400);
         setTimeout(buildTable, 400);
+        
     });
     $(".buttonMidLeft").click(function () {
         if (currentWeek > 0)
