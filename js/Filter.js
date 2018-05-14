@@ -14,16 +14,18 @@ $(".tid").change(function () {
     var strFirst = str.split(':', 1);*/
     
     if (document.getElementById("aTid").selected == true) {
-        $('.teamTime:not(:contains("  "))').closest('td').show();
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
     };
     if (document.getElementById("formiddag").selected == true) {
-        //if(teams[i][e].teamStart < 12)
-        $('.teamTime:not(:contains("  "))').closest('td').show();
-        $('.teamTime:not(:contains("00:"), :contains("01:"), :contains("02:"), :contains("03:"), :contains("04:"), :contains("05:"), :contains("06:"), :contains("07:"), :contains("08:"), :contains("09:"), :contains("10:"), :contains("11:"), :contains("12:"))').closest('td').hide();
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
+        $('.eftermiddag, .eftermiddagText').hide();
     };
     if (document.getElementById("eftermiddag").selected == true) {
-        $('.teamTime:not(:contains("  "))').closest('td').show();
-        $('.teamTime:not(:contains("13:"), :contains("14:"), :contains("15:"), :contains("16:"), :contains("17:"), :contains("18:"), :contains("19:"), :contains("20:"), :contains("21:"), :contains("22:"), :contains("23:"))').closest('td').hide();
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
+        $('.morgen, .morgenText').hide();
     };
 });
 
@@ -33,16 +35,24 @@ $(".tid").change(function () {
 $(".steder").change(function () {
     if (document.getElementById("aSted").selected == true) {
         $('.lokation:not(:contains(" "))').closest('td').show();
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
     };
     if (document.getElementById("salen").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.lokation:not(:contains(" "))').closest('td').show();
         $('.lokation:not(:contains("Salen"))').closest('td').hide();
     };
     if (document.getElementById("styrkeSalen").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.lokation:not(:contains(" "))').closest('td').show();
         $('.lokation:not(:contains("Styrkesalen"))').closest('td').hide();
     };
     if (document.getElementById("udendørs").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.lokation:not(:contains(" "))').closest('td').show();
         $('.lokation:not(:contains("Udendørs"))').closest('td').hide();
     };
@@ -50,13 +60,19 @@ $(".steder").change(function () {
 
 $(".hold").change(function () {
     if (document.getElementById("aHold").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamName:not(:contains(" "))').closest('td').show();
     };
     if (document.getElementById("bW").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamName:not(:contains(" "))').closest('td').show();
         $('.teamName:not(:contains("BodyWalk"))').closest('td').hide();
     };
     if (document.getElementById("cirkel").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamName:not(:contains(" "))').closest('td').show();
         $('.teamName:not(:contains("Cirkel"))').closest('td').hide();
     };
@@ -64,17 +80,25 @@ $(".hold").change(function () {
 
 $(".træner").change(function () {
     if (document.getElementById("aTræner").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamTrainer:not(:contains(" "))').closest('td').show();
     };
     if (document.getElementById("Katrine").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamTrainer:not(:contains(" "))').closest('td').show();
         $('.teamTrainer:not(:contains("Katrine"))').closest('td').hide();
     };
     if (document.getElementById("Søren").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamTrainer:not(:contains(" "))').closest('td').show();
         $('.teamTrainer:not(:contains("Søren"))').closest('td').hide();
     };
     if (document.getElementById("Anders").selected == true) {
+        $('.eftermiddag, .eftermiddagText').show();
+        $('.morgen, .morgenText').show();
         $('.teamTrainer:not(:contains(" "))').closest('td').show();
         $('.teamTrainer:not(:contains("Anders"))').closest('td').hide();
     };
