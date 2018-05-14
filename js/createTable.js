@@ -112,7 +112,7 @@ function buildTable() {
             }
 
         }
-
+        
 
         //appends dates to table head
         someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
@@ -133,7 +133,8 @@ function buildTable() {
 
 
         for (e = 0; e < teams[i].length; e++) {
-            var teamId = teams[i][e].teamName + '-' + day + month + '-' + e; 
+            var teamIdWithSpace = teams[i][e].teamName + '-' + day + month + '-' + e;
+            var teamId = teamIdWithSpace.replace(/ /g, '-');
             
             if (parseInt(teams[i][e].teamStart.split(":")[0]) < 12) {
                 $('.inner' + weekday[i]).append(
@@ -147,27 +148,25 @@ function buildTable() {
                 );
             }
 
-
+            
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
+                console.log('hehe')
                 var inTable = false;
                 if (teamCalendar == null) {
                     teamCalendar = new Array();
-
                     teamCalendar.push([[teamId], [teams[i][e].teamMaxParticipants], []]);
-
                 }
                 /*for(var k = 0; k < teams.length; k++){*/ 
                 for (var j = 0; j < teamCalendar.length; j++) {
-
+                    
                     if (teamCalendar[j][0].toString() == teamId) {
                         inTable = true;
                         deltagerAntal = teamCalendar[j][2].length;
                         break;
                     }
                 }
-
                 if (inTable == false) {
                     teamCalendar.push([[teamId], [teams[i][e].teamMaxParticipants], []]);
 
@@ -177,6 +176,7 @@ function buildTable() {
 
                 //teamname
                 $('.' + teamId).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
+                console.log(teamId)
                 //start and end
                 $('.' + teamId).append('<div class="teamTime">' + teams[i][e].teamStart + ' - ' + teams[i][e].teamEnd + '</div>');
                 //team duration
