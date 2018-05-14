@@ -312,12 +312,43 @@ $(document).ready(function () {
 
 
     buildTable();
+    var x = window.matchMedia("(max-width: 700px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction)
 
     /*for(var i )
     deltagerAntal = teamCalendar[i][2].length;
-*/
-
-
+    
+    // FUNCTION FOR RESPONSIVE TABLE
+*/  function myFunction(x) {
+    var day = new Date().getDay() - 1;
+    
+    if (x.matches) {// If media query matches
+        $('.godForm').hide();
+        for(var i = 0; i < weekday.length; i++){
+            if(weekday[i] == weekday[day]){
+                $('#' + weekday[day]).append();
+                $('#' + weekday[day]).show();
+                $('.inner'+weekday[day]).show();
+                $('.innerEftermiddag' + weekday[day]).show();
+            }
+            else {
+                $('#' + weekday[i]).hide();
+                $('.inner'+weekday[i]).hide();
+                $('.innerEftermiddag' + weekday[i]).hide();
+            }
+        }
+    } else {
+        $('.godForm').show();
+        for(var i = 0; i < weekday.length; i++){
+                $('#' + weekday[i]).show();
+                $('.inner'+weekday[i]).show();
+                $('.innerEftermiddag' + weekday[i]).show();
+        }
+        
+    }
+}
+    
     // Week + Buttons
     $(".buttonMid").text('UGE ' + week.toString());
 
@@ -343,34 +374,6 @@ $(document).ready(function () {
         $('#dynamicTable').slideUp(400).slideDown(400);
         setTimeout(buildTable, 400);
     });
-
-    /*$('#Mandag').hide();
-    $('.innerMandag').hide();
-    $('.innerEftermiddagMandag').hide();
-    $('#Tirsdag').hide();
-    $('.innerTirsdag').hide();
-    $('.innerEftermiddagTirsdag').hide();
-    $('#Onsdag').hide();
-    $('.innerOnsdag').hide();
-    $('.innerEftermiddagOnsdag').hide();
-    $('#Torsdag').hide();
-    $('.innerTorsdag').hide();
-    $('.innerEftermiddagTorsdag').hide();
-    $('#Lørdag').hide();
-    $('.innerLørdag').hide();
-    $('.innerEftermiddagLørdag').hide();
-    $('#Søndag').hide();
-    $('.innerSøndag').hide();
-    $('.innerEftermiddagSøndag').hide();*/
-
-    /*  $('#Mandag').hide();
-      $('.innerMandag').hide();
-      $('.mainTable').stacktable();
-      $('.mainTable').stackcolumns();*/
-
-    // $('.mainTable').stacktable();
-    // $('.mainTable').stackcolumns();
-
 });
 
 
