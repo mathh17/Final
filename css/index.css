@@ -74,13 +74,13 @@ h6 {
 
 /*Sets the first child in mineBookninger to sit right*/
 .mineBookninger div:first-child {
-    position: absolute;
+    /*position: absolute;*/
 }
 
 /*Sets the last child in right position and styles it*/
 .mineBookninger div:last-child {
-    float: right;
-    text-align: center;
+    /*float: right;*/
+    /*text-align: center;*/
 }
 
 body{
