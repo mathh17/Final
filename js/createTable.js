@@ -16,7 +16,7 @@ var day;
 var month;
 var currentWeek = 0;
 var modal = document.getElementById('myModal');
-var teamCalendar = JSON.parse(localStorage.getItem('teamCalendar'));   
+var teamCalendar = JSON.parse(localStorage.getItem('teamCalendar'));
 var deltagerAntal = 0;
 
 
@@ -27,7 +27,7 @@ function loadTeamArray() {
         lsTeamsArray = new Array();
         lsTeamsArray = JSON.parse(lsTeam);
         $(lsTeamsArray).each(function (index, data) {
-        console.log("index: " + index + ", data: " + data);
+            console.log("index: " + index + ", data: " + data);
         });
     }
 }
@@ -42,7 +42,7 @@ for (var i = 0; i < lsTeamsArray.length; i++) {
                 teams[j].push(lsTeamsArray[i]);
             }
     }
-    
+
 }
 
 function buildTable() {
@@ -55,29 +55,28 @@ function buildTable() {
     var buttonHTML = '<br><div align="center" class="cube"><div class="front"> DELTAG </div><div class="bottom"><img class="knapImage" src="pictures/godForm.png"></div><div class="back"> AFMELD </div><div class="top"></div></div><div align="center"> <div class="shadow"></div></div>';
 
     $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
-                $('.mainTable').append('<tbody class="morgen"></tbody>');
-                $('.morgenText').append('<td colspan="7">Morgen</td>');
+    $('.mainTable').append('<tbody class="morgen"></tbody>');
+    $('.morgenText').append('<td colspan="7">Morgen</td>');
     //Table Header
-    for (var i = 0; i < weekday.length*2; i++) {
-        if(i<7){
-        $('#tableDates').append('<th id="' + weekday[i] + '" class="headerTable"></th>');
-        $('.morgen').append('<td class="inner' + weekday[i] + '" class="innerTable"></td>');
+    for (var i = 0; i < weekday.length * 2; i++) {
+        if (i < 7) {
+            $('#tableDates').append('<th id="' + weekday[i] + '" class="headerTable"></th>');
+            $('.morgen').append('<td class="inner' + weekday[i] + '" class="innerTable"></td>');
         }
-        if(i==6)
-            {
-                
-               $('.mainTable').append('<tbody class="eftermiddagText"></tbody>');
-                $('.eftermiddagText').append('<td colspan="7">Eftermiddag</td>');
-                $('.mainTable').append('<tbody class="eftermiddag"></tbody>');
-                
-            }
-        
-        if(i>6){
-        $('.eftermiddag').append('<td class="innerEftermiddag' + weekday[i-7] + '" class="innerTable"></td>');
+        if (i == 6) {
+
+            $('.mainTable').append('<tbody class="eftermiddagText"></tbody>');
+            $('.eftermiddagText').append('<td colspan="7">Eftermiddag</td>');
+            $('.mainTable').append('<tbody class="eftermiddag"></tbody>');
+
+        }
+
+        if (i > 6) {
+            $('.eftermiddag').append('<td class="innerEftermiddag' + weekday[i - 7] + '" class="innerTable"></td>');
         }
     }
-    
-    
+
+
 
 
 
@@ -86,6 +85,7 @@ function buildTable() {
         var someDate = new Date();
         var day1 = new Date().getDay() - 1;
         var numberOfDaysToAdd = 0;
+        
 
         // 
         if (currentWeek == 0) {
@@ -130,82 +130,82 @@ function buildTable() {
 
 
         for (e = 0; e < teams[i].length; e++) {
-            console.log(parseInt(teams[i][e].teamStart.split(":")[0]))
-            if(parseInt(teams[i][e].teamStart.split(":")[0])< 12){
-            $('.inner' + weekday[i]).append(
-                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + ' calendarSquare">' +
-                '</td></tr>'
-            );
-                }
-            else{
-            $('.innerEftermiddag' + weekday[i]).append(
-                '<tr><td class="' + teams[i][e].teamName + '-' + day + month + '-' + e + ' calendarSquare">' +
-                '</td></tr>'
-            );
-                }
-
-
+            var teamId = teams[i][e].teamName + '-' + day + month + '-' + e; 
             
+            if (parseInt(teams[i][e].teamStart.split(":")[0]) < 12) {
+                $('.inner' + weekday[i]).append(
+                    '<tr><td class="' + teamId + ' calendarSquare">' +
+                    '</td></tr>'
+                );
+            } else {
+                $('.innerEftermiddag' + weekday[i]).append(
+                    '<tr><td class="' + teamId + ' calendarSquare">' +
+                    '</td></tr>'
+                );
+            }
+
+
+
             //Adds table with teams
             if (teams[i][e] !== undefined) {
                 var inTable = false;
-                if(teamCalendar == null){
-                teamCalendar = new Array();
-                
-                teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
-                 
+                if (teamCalendar == null) {
+                    teamCalendar = new Array();
+
+                    teamCalendar.push([[teamId], [teams[i][e].teamMaxParticipants], []]);
+
                 }
-                /*for(var k = 0; k < teams.length; k++){*/
-                for (var j = 0; j < teamCalendar.length; j++){
-                    
-                if(teamCalendar[j][0].toString() == teams[i][e].teamName + '-' + day + month + '-' + e){
-                    inTable = true;
-                    deltagerAntal = teamCalendar[j][2].length;
-                    break;
+                /*for(var k = 0; k < teams.length; k++){*/ 
+                for (var j = 0; j < teamCalendar.length; j++) {
+
+                    if (teamCalendar[j][0].toString() == teamId) {
+                        inTable = true;
+                        deltagerAntal = teamCalendar[j][2].length;
+                        break;
                     }
                 }
-                
+
                 if (inTable == false) {
-                    teamCalendar.push([[teams[i][e].teamName + '-' + day + month + '-' + e],[teams[i][e].teamMaxParticipants],[]]);
-                    
+                    teamCalendar.push([[teamId], [teams[i][e].teamMaxParticipants], []]);
+
                 }
                 /*}*/
-                
-                
+
+
                 //teamname
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
+                $('.' + teamId).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
                 //start and end
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTime">' + teams[i][e].teamStart + ' - ' + teams[i][e].teamEnd + '</div>');
+                $('.' + teamId).append('<div class="teamTime">' + teams[i][e].teamStart + ' - ' + teams[i][e].teamEnd + '</div>');
                 //team duration
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamDuration">' + teams[i][e].teamDuration + ' min' + '</div>');
+                $('.' + teamId).append('<div class="teamDuration">' + teams[i][e].teamDuration + ' min' + '</div>');
                 //Location
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="lokation">' + teams[i][e].teamLocation + '</div>');
+                $('.' + teamId).append('<div class="lokation">' + teams[i][e].teamLocation + '</div>');
                 //Trainer
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
+                $('.' + teamId).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
                 //Participants
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append('<div> <span class="deltagerCounter"></span>'+'/' + teams[i][e].teamMaxParticipants + '</div>');
-                
-                if(user != null){
-                //participate button
-                $('.' + teams[i][e].teamName + '-' + day + month + '-' + e).append(buttonHTML);
+                $('.' + teamId).append('<div> <span class="deltagerCounter"></span>' + '/' + teams[i][e].teamMaxParticipants + '</div>');
+
+                if (user != null) {
+                    //participate button
+                    $('.' + teamId).append(buttonHTML);
                 }
                 /*$('.deltagerCounter').text(teamCalendar[i][2].length);*/
-                
-                
+
+
             }
 
         }
-        
+
     }
 
-    
+
     $(".cube").click(function () {
         //use a class, since your ID gets mangled
         var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];
         if ($(this).hasClass('rotate') == true) {
             $(this).removeClass('rotate');
-            for(var i = 0; i < teamCalendar.length; i++){
-                if(teamCalendar[i][0] == clickedTeam){
+            for (var i = 0; i < teamCalendar.length; i++) {
+                if (teamCalendar[i][0] == clickedTeam) {
                     teamCalendar[i][2].pop(user);
                     /*deltagerAntal = teamCalendar[i][2].length;*/
                     localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
@@ -213,48 +213,46 @@ function buildTable() {
                 }
             }
         } else {
-            for(var i = 0; i < teamCalendar.length; i++){
-                if(teamCalendar[i][0] == clickedTeam){
-                    if(checkDeltager(i) == false){
-                    teamCalendar[i][2].splice(0,0,user);
-                    localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
-                    /*deltagerAntal = teamCalendar[i][2].length;*/
-                    console.log($(this).closest('.deltagerCounter'));
-                    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
-                    $(this).addClass('rotate'); //add the class to the clicked element
-                    }
-                    else{
+            for (var i = 0; i < teamCalendar.length; i++) {
+                if (teamCalendar[i][0] == clickedTeam) {
+                    if (checkDeltager(i) == false) {
+                        teamCalendar[i][2].splice(0, 0, user);
+                        localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                        /*deltagerAntal = teamCalendar[i][2].length;*/
+                        console.log($(this).closest('.deltagerCounter'));
+                        $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
+                        $(this).addClass('rotate'); //add the class to the clicked element
+                    } else {
                         alert('du deltager allerede');
                     }
                 }
             }
-            
+
             console.log($(this).closest('td').attr('class'));
         }
     });
-    
-      $('.calendarSquare').click(function(){
-    modal.style.display = "block";
-    selectedName = $(this).closest('td').attr('class').split('-')[0];
-  
-        for (var i=0; i < teams.length; i++){
-            for (var j=0; j< teams[i].length; j++)
-                {
-                    if (teams[i][j].teamName == selectedName){
-                        var selectedTeam = teams[i][j];
-                    }
+
+    $('.calendarSquare').click(function () {
+        modal.style.display = "block";
+        selectedName = $(this).closest('td').attr('class').split('-')[0];
+
+        for (var i = 0; i < teams.length; i++) {
+            for (var j = 0; j < teams[i].length; j++) {
+                if (teams[i][j].teamName == selectedName) {
+                    var selectedTeam = teams[i][j];
                 }
+            }
         }
-        
-   /*$('.modal-content').html(selectedName);*/
-    $('.modal-content').html(selectedTeam.teamTrainer);
-});
-    
+
+        /*$('.modal-content').html(selectedName);*/
+        $('.modal-content').html(selectedTeam.teamTrainer);
+    });
+
     checkCalendar();
-    
+
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
@@ -278,48 +276,48 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-function updateDeltagere(){
+function updateDeltagere() {
     $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
 }
 
-function checkDeltager(i){
-   
-        for (var j = 0; j < teamCalendar[i][2].length; i++){
-        if(teamCalendar[i][2][j].email == user.email){
+function checkDeltager(i) {
+
+    for (var j = 0; j < teamCalendar[i][2].length; i++) {
+        if (teamCalendar[i][2][j].email == user.email) {
             return true;
         }
     }
     return false;
 }
 
-function checkCalendar()    {
-    for(var i = 0; i < teamCalendar.length; i++){
-        for(var j = 0; j < teamCalendar[i][2].length; j++){
-                if(teamCalendar[i][2][j].email == user.email){
-                    $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate');
-                    console.log(teamCalendar[i][2][j].email);
-                }
+function checkCalendar() {
+    for (var i = 0; i < teamCalendar.length; i++) {
+        for (var j = 0; j < teamCalendar[i][2].length; j++) {
+            if (teamCalendar[i][2][j].email == user.email) {
+                $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate');
+                console.log(teamCalendar[i][2][j].email);
+            }
         }
         $('.' + teamCalendar[i][0].toString()).find('.deltagerCounter').text(teamCalendar[i][2].length);
-     }
-    
+    }
+
 }
 
 $(document).ready(function () {
     for (var i = 0; i < teams.length; i++) {
         teams[i].sort(dynamicSort('teamStart'));
-        
-        
+
+
     }
-    
+
 
     buildTable();
-    
+
     /*for(var i )
     deltagerAntal = teamCalendar[i][2].length;
 */
-    
-  
+
+
     // Week + Buttons
     $(".buttonMid").text('UGE ' + week.toString());
 
@@ -328,10 +326,10 @@ $(document).ready(function () {
             currentWeek++;
         else
             alert("Det er ikke muligt at booke mere end to uger frem. Vh. God Form :)")
-        
+
         $(".buttonMid").text('UGE ' + (week + currentWeek).toString());
-        
-        
+
+
         $('#dynamicTable').slideUp(400).slideDown(400);
         setTimeout(buildTable, 400);
     });
@@ -340,12 +338,30 @@ $(document).ready(function () {
             currentWeek--;
         else
             alert("Det er ikke muligt at gå tilbage i tiden :)")
-        
+
         $(".buttonMid").text('UGE ' + (week + currentWeek).toString());
         $('#dynamicTable').slideUp(400).slideDown(400);
         setTimeout(buildTable, 400);
     });
 
+    /*$('#Mandag').hide();
+    $('.innerMandag').hide();
+    $('.innerEftermiddagMandag').hide();
+    $('#Tirsdag').hide();
+    $('.innerTirsdag').hide();
+    $('.innerEftermiddagTirsdag').hide();
+    $('#Onsdag').hide();
+    $('.innerOnsdag').hide();
+    $('.innerEftermiddagOnsdag').hide();
+    $('#Torsdag').hide();
+    $('.innerTorsdag').hide();
+    $('.innerEftermiddagTorsdag').hide();
+    $('#Lørdag').hide();
+    $('.innerLørdag').hide();
+    $('.innerEftermiddagLørdag').hide();
+    $('#Søndag').hide();
+    $('.innerSøndag').hide();
+    $('.innerEftermiddagSøndag').hide();*/
 
     /*  $('#Mandag').hide();
       $('.innerMandag').hide();
