@@ -1,4 +1,46 @@
+var user = JSON.parse(localStorage.getItem("loggedInUser"));
+var teamCalendar = JSON.parse(localStorage.getItem("teamCalendar"));
+var teamData = JSON.parse(localStorage.getItem("newTeam_Data"));
+var deltag = [];
+var participatingTeams
+var teamNameDeltag = [];
+var chosenTeam = [];
+
+for(var i = 0 ; i < teamCalendar.length; i++){
+    for(var j = 0; j < teamCalendar[i][2].length; j++){
+        if(user.email == teamCalendar[i][2][j].email){
+            if(deltag == null){
+           deltag = (teamCalendar[i][0].toString());
+            }
+            else{
+                deltag.push(teamCalendar[i][0].toString());
+            }
+        }
+    }
+}
+for(index in deltag){
+    teamNameDeltag.push(deltag[index].split("-"));
+}
+console.log(teamNameDeltag);
+for(var i = 0; i < teamNameDeltag.length; i++){
+    if(teamNameDeltag[i][0] == teamData[i].teamName ){
+        if(chosenTeam == null){
+            chosenTeam = teamData[i];
+            continue;
+        }
+        else{
+            chosenTeam.push(teamData[i]);
+            
+        }
+    }
+}
+console.log(chosenTeam);    
+    
+
+
 $(document).ready(function () {
+    
+   
     
     /*The two next put hover effect on all list items in the sidenav*/
     $(".sidenav li").mouseenter(function () {
@@ -29,3 +71,5 @@ $(document).ready(function () {
         $(".beskeder").css("display", "none");
     });
 });
+
+
