@@ -51,12 +51,40 @@
         </div>
 
         <div class="row">
-            <div class="medium-7"><button class="buttonLeft">FILTER >      </button>
+            <div class="medium-7">
+                <button class="buttonLeft">FILTER <img src="pictures/arrowbig.png">      </button>
             </div>
             <div class="midle">
                 <button class="buttonMidLeft"> &lt;&lt;</button>
                 <button class="buttonMid">UGE 17</button>
                 <button class="buttonMidRight">&gt;&gt;</button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="dropContent small-3 large-2">
+                <select class="tid">
+                        <option id="aTid">Alle tidspunkter</option>
+                        <option id="formiddag">Formiddag</option>
+                        <option id="eftermiddag">Eftermiddag</option>
+                    </select>
+                <select class="steder">
+                        <option id="aSted">Alle steder</option>
+                        <option id="salen">Salen</option>
+                        <option id="styrkeSalen">Styrkesalen</option>
+                        <option id="udendørs">Udendørs</option>
+                    </select>
+                <select class="hold">
+                        <option id="aHold">Alle hold</option>
+                        <option id="bW">BodyWalk</option>
+                        <option id="cirkel">Cirkel</option>
+                    </select>
+                <select class="træner">
+                        <option id="aTræner">Alle trænere</option>
+                        <option id="Katrine">Katrine</option>
+                        <option id="Anders">Anders</option>
+                        <option id="Søren">Søren</option>
+                    </select>
             </div>
         </div>
 
@@ -90,6 +118,7 @@
     <script src="js/stacktable.js" type="text/javascript"></script>
     <script src="js/createTable.js"></script>
     <script src="js/generel.js"></script>
+    <script src="js/Filter.js"></script>
     <script>
         $(document).foundation();
 
