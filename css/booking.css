@@ -71,6 +71,16 @@ body {
     height: 1288px;
 }
 
+.dayButtons{
+    width: 13.7%;
+    margin-left: .5%;
+    float: left;
+    padding-top: 1.7%;
+    padding-right: 3.5%;
+    padding-bottom: 1.7%;
+    padding-left: 3.5%;
+}
+
 .godForm {
     padding-top: 10px;
     text-align: center;
