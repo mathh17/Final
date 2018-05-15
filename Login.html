@@ -66,10 +66,10 @@
         container.alpha = 1;
 
 
-        var bmp = new createjs.Bitmap('pictures/crosfit.jpg');
+        var bmp = new createjs.Bitmap('pictures/login.jpeg');
         container.addChild(bmp);
-        bmp.scaleX = 0.5;
-        bmp.scaleY = 0.5;
+        bmp.scaleX = 0.3;
+        bmp.scaleY = 0.3;
         bmp.regY = 300;
         bmp.regX = 200;
         bmp.alpha = 0;
@@ -77,12 +77,14 @@
         bmp.snapToPixelEnabled = true;
 
 
-        var bmp2 = new createjs.Bitmap('pictures/crossfit.jpg');
+        var bmp2 = new createjs.Bitmap('pictures/login2.jpg');
         container.addChild(bmp2);
         bmp2.regY = 300;
         bmp2.regX = 300;
         bmp2.x = 0;
         bmp2.alpha = 0;
+        bmp2.scaleX = 0.1;
+        bmp2.scaleY = 0.1;
         bmp2.webkitImageSmoothingEnabled = bmp2.mozImageSmoothingEnabled = true;
         bmp2.snapToPixelEnabled = true;
 
@@ -91,8 +93,8 @@
             x: 0,
             alpha: 1
         }, 1000).wait(1000).to({
-            scaleX: 0.8,
-            scaleY: 0.8,
+            scaleX: 0.5,
+            scaleY: 0.5,
             x: -200
         }, 10000).wait(2000).to({
             x: -500,
@@ -102,9 +104,9 @@
         createjs.Tween.get(bmp2).wait(13000).to({
             alpha: 1
         }, 1000).wait(1000).to({
-            scaleX: 0.4,
-            scaleY: 0.4
-        }, 15000);
+            scaleX: 0.3,
+            scaleY: 0.3
+        }, 20000);
 
         stage.addChild(container);
         stage.update();
@@ -125,7 +127,7 @@
     function checkForUser() {
         var userNameInput = document.getElementById('username').value;
         var passwordInput = document.getElementById('password').value;
-        
+
 
         userNameInput = userNameInput.toString();
         userNameInput = userNameInput.toLowerCase();
