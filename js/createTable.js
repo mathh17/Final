@@ -254,8 +254,9 @@ function buildTable() {
             }
         }
 
-        /*$('.modal-content').html(selectedName);*/
-        $('.modal-content').html(selectedTeam.teamTrainer);
+        $('.modal-contentName').html(selectedName);
+        $('.modal-contentBeskrivelse').html(selectedTeam.teamDescription);
+        $('.modal-trainer').html(selectedTeam.teamTrainer);
     });
 
     checkCalendar();
