@@ -56,6 +56,19 @@ body {
     font-size: 12px;
 }
 
+#aTid, #formiddag, #eftermiddag, #aSted, #salen, #styrkeSalen, #udendørs, #aHold, #bW, #cirkel, #aTræmer, #Katrine, #Anders, #Søren{
+    background-color: darkgreen;
+}
+
+.tid, .steder, .hold, .træner{
+    border-radius: 3px;
+    padding: 2%;
+}
+
+.tid:hover, .steder:hover, .hold:hover, .træner:hover{
+    transform: scale(1.1);
+    background-color: darkgreen;
+}
 /*.deltagere{
     src: url(../pictures/medlemmer.PNG);
 }*/
@@ -89,7 +102,7 @@ body {
     z-index: 3;
     transform: scale(1.2);
     outline: 0;
-    border: 1px solid rgb(0, 70, 0);
+    border: 1px solid rgb(0, 80, 0);
 }
 
 .dayButtons:active {
@@ -101,7 +114,6 @@ body {
     z-index: 2;
     background-color: rgb(0, 50, 0);
     border: 1px solid rgb(0, 50, 0);
-    transform: scale(1.2);
 }
 
 .godForm {
@@ -121,12 +133,21 @@ body {
     border: none;
     color: white;
     text-shadow: 1px 1px black;
-
     padding: 1.7% 2%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.buttonLeft:hover{
+   background-color: rgb(0, 70, 0);
+    z-index: 3;
+    transform: scale(1.1);
+    outline: 0; 
+}
+.buttonLeft:active {
+    transform: scale(0.9);
 }
 
 .buttonLeft img {
@@ -170,18 +191,34 @@ select {
     font-size: 16px;
 }
 
+.buttonMidLeft:hover {
+    background-color: rgb(0, 70, 0);
+    z-index: 3;
+    transform: scale(1.1);
+    outline: 0;
+}
+
+.buttonMidLeft:active {
+    transform: scale(0.9);
+    outline: 0;
+}
+
 .buttonMid {
     font-family: 'IBM Plex Mono', monospace;
     background-color: green;
     border: none;
     color: white;
     text-shadow: 1px 1px black;
-
+    outline: 0;
     padding: 1.7% 3%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+.buttonMid:hover{
+    outline: 0;
+    background-color: green;
 }
 
 .buttonMidRight {
@@ -197,6 +234,18 @@ select {
     display: inline-block;
     font-size: 16px;
 }
+.buttonMidRight:hover {
+    background-color: rgb(0, 70, 0);
+    z-index: 3;
+    transform: scale(1.1);
+    outline: 0;
+}
+
+.buttonMidRight:active {
+    transform: scale(0.9);
+    outline: 0;
+}
+
 
 .table {
     opacity: ;
