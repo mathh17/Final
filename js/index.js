@@ -6,6 +6,50 @@ var participatingTeams
 var teamNameDeltag = [];
 var chosenTeam = [];
 
+
+if(teamData == null){
+    var spinning = new TeamObject(
+            'Spinning',
+            '10;00',
+            '11:00',
+            60,
+            'Anders',
+            'Salen',
+            10,
+            'Hardcore Cykling!',
+            [0,2,4],
+            false
+        );
+    var fitpump = new TeamObject(
+            'Fitpump',
+            '13;00',
+            '14:00',
+            60,
+            'Søren',
+            'Udendørs',
+            20,
+            'Hardcore bodyPump!',
+            [3],
+            false
+        );
+    var fitWalk = new TeamObject(
+            'FitWalk',
+            '13;00',
+            '14:30',
+            90,
+            'Katrine',
+            'Salen',
+            10,
+            'Få en god gåtur på løbebåndene',
+            [5],
+            false
+        );
+    teamData.push(fitWalk, fitpump, spinning)
+     localStorage.setItem('newTeam_Data', JSON.stringify(teamData));
+    
+}
+
+
 for(var i = 0 ; i < teamCalendar.length; i++){
     for(var j = 0; j < teamCalendar[i][2].length; j++){
         if(user.email == teamCalendar[i][2][j].email){
@@ -35,8 +79,11 @@ for(var i = 0; i < teamData.length; i++){
     }
 }
 }
-console.log(chosenTeam);    
+console.log(teamData);    
     
+
+
+
 
 
 $(document).ready(function () {

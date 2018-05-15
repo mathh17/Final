@@ -1,6 +1,6 @@
 function TrainerObject(trainerName, trainerPicture, trainerDescription ){
     this.trainerName = trainerName;
-    this.trainerPicture = trainerPicture.src;
+    this.trainerPicture = trainerPicture;
     this.trainerDescription = trainerDescription;
 }
         

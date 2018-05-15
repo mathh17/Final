@@ -19,7 +19,7 @@ var modal = document.getElementById('myModal');
 var teamCalendar = JSON.parse(localStorage.getItem('teamCalendar'));
 var deltagerAntal = 0;
 
-var x = window.matchMedia("(max-width: 700px)")
+var x = window.matchMedia("(max-width: 768px)")
     myFunction(x) // Call listener function at run time
     x.addListener(myFunction)
 
