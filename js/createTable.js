@@ -30,7 +30,6 @@ function loadTeamArray() {
         lsTeamsArray = new Array();
         lsTeamsArray = JSON.parse(lsTeam);
         $(lsTeamsArray).each(function (index, data) {
-            console.log("index: " + index + ", data: " + data);
         });
     }
 }
@@ -152,7 +151,6 @@ function buildTable() {
 
             //Adds table with teams
             if (teams[i][e] !== undefined) {
-                console.log('hehe')
                 var inTable = false;
                 if (teamCalendar == null) {
                     teamCalendar = new Array();
@@ -176,7 +174,6 @@ function buildTable() {
 
                 //teamname
                 $('.' + teamId).append('<div class="teamName">' + teams[i][e].teamName + '</div>');
-                console.log(teamId)
                 //start and end
                 $('.' + teamId).append('<div class="teamTime">' + teams[i][e].teamStart + ' - ' + teams[i][e].teamEnd + '</div>');
                 //team duration
@@ -222,7 +219,6 @@ function buildTable() {
                         teamCalendar[i][2].splice(0, 0, user);
                         localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
                         /*deltagerAntal = teamCalendar[i][2].length;*/
-                        console.log($(this).closest('.deltagerCounter'));
                         $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
                         $(this).addClass('rotate'); //add the class to the clicked element
                     } else {
@@ -230,8 +226,6 @@ function buildTable() {
                     }
                 }
             }
-
-            console.log($(this).closest('td').attr('class'));
         }
     });
 
@@ -299,7 +293,6 @@ function checkCalendar() {
         for (var j = 0; j < teamCalendar[i][2].length; j++) {
             if (teamCalendar[i][2][j].email == user.email) {
                 $('.' + teamCalendar[i][0].toString()).find('.cube').addClass('rotate');
-                console.log(teamCalendar[i][2][j].email);
             }
         }
         $('.' + teamCalendar[i][0].toString()).find('.deltagerCounter').text(teamCalendar[i][2].length);
@@ -313,9 +306,10 @@ function checkCalendar() {
     
     // FUNCTION FOR RESPONSIVE TABLE
 */  function myFunction() {
-    var day = new Date().getDay() - 1;
     
+    var day = new Date().getDay() - 1;
     if (x.matches) {// If media query matches
+        dayButtons();
         $('.godForm').hide();
         for(var i = 0; i < weekday.length; i++){
             if(weekday[i] == weekday[day] && currentWeek == 0){
@@ -343,6 +337,28 @@ function checkCalendar() {
         }
         
     }
+}
+
+function dayButtons(){
+    
+    $('.dayButtons').on('click', function(){
+        if ($(this).attr("onClick") == undefined) {
+            var dag =$(this).val();
+            for(var i = 0; i < weekday.length; i++){
+            if(weekday[i] == weekday[dag]){
+                $('#' + weekday[dag]).show();
+                $('.inner'+weekday[dag]).show();
+                $('.innerEftermiddag' + weekday[dag]).show();}
+                else {
+                $('#' + weekday[i]).hide();
+                $('.inner'+weekday[i]).hide();
+                $('.innerEftermiddag' + weekday[i]).hide();
+            }
+        }
+        }
+        
+    });
+    
 }
 
 
