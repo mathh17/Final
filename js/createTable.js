@@ -229,7 +229,7 @@ function buildTable() {
         }
     });
 
-    $('.calendarSquare').click(function () {
+    $('.teamName, .teamTime, .teamDuration, .lokation, .teamTrainer, .deltagerCounter').click(function () {
         modal.style.display = "block";
         selectedName = $(this).closest('td').attr('class').split('-')[0];
 
