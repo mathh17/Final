@@ -237,7 +237,7 @@ function buildTable() {
         for (var k = 0; k < selectedNameTry.length; k++) {
 
             if (isNaN(parseInt(selectedNameTry[k].toString())) && selectedNameTry1 === '') {
-                var selectedNameTry1 = selectedNameTry[k].toString();
+                selectedNameTry1 = selectedNameTry[k].toString();
             } else if (isNaN(parseInt(selectedNameTry[k].toString()))) {
                 selectedNameTry1 = selectedNameTry1 + ' ' + selectedNameTry[k].toString();
             }
@@ -248,7 +248,7 @@ function buildTable() {
 
         for (var i = 0; i < teams.length; i++) {
             for (var j = 0; j < teams[i].length; j++) {
-                if (teams[i][j].teamName == selectedName) {
+                if (teams[i][j].teamName == selectedNameTry1) {
                     var selectedTeam = teams[i][j];
                 }
             }
