@@ -1,5 +1,5 @@
 body {
-    background-image: url(../pictures/WomanWeights.jpg);
+    background-image: url(../pictures/crossfit1.jpg);
     background-repeat: repeat-y;
     background-position: center top;
     background-size: 100%;
@@ -48,6 +48,7 @@ body {
     margin-bottom: -0.2px;
     position: relative;
     transition: box-shadow .2s;
+    color: black;
 }
 
 
