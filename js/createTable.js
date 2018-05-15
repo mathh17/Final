@@ -254,7 +254,7 @@ function buildTable() {
             }
         }
 
-        $('.modal-contentName').html(selectedName);
+        $('.modal-contentName').html(selectedNameTry1);
         $('.modal-contentBeskrivelse').html(selectedTeam.teamDescription);
         $('.modal-trainer').html(selectedTeam.teamTrainer);
     });
