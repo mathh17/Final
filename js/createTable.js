@@ -182,22 +182,19 @@ function buildTable() {
                 //Trainer
                 $('.' + teamId).append('<div class="teamTrainer">' + teams[i][e].teamTrainer + '</div>');
                 //Participants
-                $('.' + teamId).append('<div> <span class="deltagerCounter"></span>' + '/' + teams[i][e].teamMaxParticipants + '</div>');
+                $('.' + teamId).append('<div class="picture2"> <span class="deltagerCounter"></span>' + '/' + teams[i][e].teamMaxParticipants + '</div>');
 
                 if (user != null) {
                     //participate button
                     $('.' + teamId).append(buttonHTML);
                 }
                 /*$('.deltagerCounter').text(teamCalendar[i][2].length);*/
-
-
             }
-
         }
-
     }
 
-
+    
+    
     $(".cube").click(function () {
         //use a class, since your ID gets mangled
         var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];

@@ -55,6 +55,29 @@ body {
 .teamTrainer {
     font-size: 12px;
 }
+///////////
+
+@media screen and (max-width: 768px) {
+    .picture2 {
+        background-image: url(../pictures/medlemmer.PNG);
+        background-position: left; 
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .picture2 {
+        background-image: url(../pictures/medlemmer.PNG);
+        background-position: left; 
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0% 16%;
+    }
+}
+
+
+//////////////////
 
 #aTid, #formiddag, #eftermiddag, #aSted, #salen, #styrkeSalen, #udendørs, #aHold, #bW, #cirkel, #aTræmer, #Katrine, #Anders, #Søren{
     background-color: darkgreen;
