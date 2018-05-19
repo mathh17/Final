@@ -72,15 +72,12 @@ td {
     text-align: center;
 }
 
-.morgenText{ 
-    border-bottom: 1px solid black;
-    background-color: whitesmoke;
+
+.morgenText, .eftermiddagText{ 
+    background-color: lightsteelblue;
+    
 }
 
-.eftermiddagText{ 
-    border-bottom: 1px solid black;
-    background-color: whitesmoke;
-}
 
 tr {
     margin: auto;
