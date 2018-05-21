@@ -111,7 +111,7 @@ function buildTable() {
 
     $('#dynamicTable table thead').append('<tr id="tableDates"></tr>');
     $('.mainTable').append('<tbody class="morgen"></tbody>');
-    $('.morgenText').append('<td colspan="7">Morgen</td>');
+    $('.morgenText').append('<td colspan="7">Formiddag</td>');
     //Table Header
     for (var i = 0; i < weekday.length * 2; i++) {
         if (i < 7) {
