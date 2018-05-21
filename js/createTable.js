@@ -28,7 +28,7 @@ function loadTeamArray() {
     if(localStorage.getItem('newTeam_Data') == null){
     var spinning = new TeamObject(
             'Spinning',
-            '10;00',
+            '10:00',
             '11:00',
             60,
             'Anders',

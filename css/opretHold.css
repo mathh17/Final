@@ -17,8 +17,8 @@ body {
     height: 10%;
 }
 
-.startTid {
-    border: solid black 1px;
+.startTid {/*
+    border: solid black 1px;*/
     text-align: center;
     background-color: #DAEDE2;
     padding-top: 10px;
@@ -26,7 +26,7 @@ body {
 }
 
 .slutTid {
-    border: solid black 1px;
+   /* border: solid black 1px;*/
     background-color: #EDDCDA;
     padding-top: 10px;
     margin-bottom: 20px;
@@ -35,7 +35,7 @@ body {
 }
 
 .varighed {
-    border: solid black 1px;
+    /*border: solid black 1px;*/
     background-color: #EDEDDA;
     padding-top: 10px;
     padding-bottom: 20px;
