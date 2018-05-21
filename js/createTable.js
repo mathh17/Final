@@ -25,6 +25,60 @@ x.addListener(myFunction)
 
 
 function loadTeamArray() {
+    if(localStorage.getItem('newTeam_Data') == null){
+    var spinning = new TeamObject(
+            'Spinning',
+            '10;00',
+            '11:00',
+            60,
+            'Anders',
+            'Salen',
+            10,
+            'Hardcore Cykling!',
+            [0,2,4,5],
+            false
+        );
+    var fitpump = new TeamObject(
+            'Fitpump',
+            '08;30',
+            '09:00',
+            60,
+            'Søren',
+            'Udendørs',
+            20,
+            'Hardcore bodyPump!',
+            [1,3,6],
+            false
+        );
+        var fitpump2 = new TeamObject(
+            'Fitpump',
+            '13;00',
+            '14:00',
+            60,
+            'Søren',
+            'Udendørs',
+            20,
+            'Hardcore bodyPump!',
+            [1,3,6],
+            false
+        );
+    var fitWalk = new TeamObject(
+            'FitWalk',
+            '13;00',
+            '14:30',
+            90,
+            'Katrine',
+            'Salen',
+            10,
+            'Få en god gåtur på løbebåndene',
+            [0,2,4,5],
+            false
+        );
+        var teamData = [spinning,fitpump,fitpump2,fitWalk];
+        localStorage.setItem('newTeam_Data', JSON.stringify(teamData));
+    
+}
+
     var lsTeam = localStorage.getItem('newTeam_Data');
     if (lsTeam != null) {
         lsTeamsArray = new Array();
@@ -193,69 +247,9 @@ function buildTable() {
         }
     }
 
-    
-    
-    $(".cube").click(function () {
-        //use a class, since your ID gets mangled
-        var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];
-        if ($(this).hasClass('rotate') == true) {
-            $(this).removeClass('rotate');
-            for (var i = 0; i < teamCalendar.length; i++) {
-                if (teamCalendar[i][0] == clickedTeam) {
-                    teamCalendar[i][2].pop(user);
-                    /*deltagerAntal = teamCalendar[i][2].length;*/
-                    localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
-                    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
-                }
-            }
-        } else {
-            for (var i = 0; i < teamCalendar.length; i++) {
-                if (teamCalendar[i][0] == clickedTeam) {
-                    if (checkDeltager(i) == false) {
-                        teamCalendar[i][2].splice(0, 0, user);
-                        localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
-                        /*deltagerAntal = teamCalendar[i][2].length;*/
-                        $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
-                        $(this).addClass('rotate'); //add the class to the clicked element
-                    } else {
-                        alert('du deltager allerede');
-                    }
-                }
-            }
-        }
-    });
 
-    $('.teamName, .teamTime, .teamDuration, .lokation, .teamTrainer, .deltagerCounter').click(function () {
-        modal.style.display = "block";
-        selectedName = $(this).closest('td').attr('class').split('-')[0];
-        var selectedNameTry = $(this).closest('td').attr('class').split('-');
-        var selectedNameTry1 = '';
-
-        for (var k = 0; k < selectedNameTry.length; k++) {
-
-            if (isNaN(parseInt(selectedNameTry[k].toString())) && selectedNameTry1 === '') {
-                selectedNameTry1 = selectedNameTry[k].toString();
-            } else if (isNaN(parseInt(selectedNameTry[k].toString()))) {
-                selectedNameTry1 = selectedNameTry1 + ' ' + selectedNameTry[k].toString();
-            }
-        }
-        console.log(selectedNameTry1);
-
-
-
-        for (var i = 0; i < teams.length; i++) {
-            for (var j = 0; j < teams[i].length; j++) {
-                if (teams[i][j].teamName == selectedNameTry1) {
-                    var selectedTeam = teams[i][j];
-                }
-            }
-        }
-
-        $('.modal-contentName').html(selectedNameTry1);
-        $('.modal-contentBeskrivelse').html(selectedTeam.teamDescription);
-        $('.modal-trainer').html(selectedTeam.teamTrainer);
-    });
-
+    makeDeltagerClickable();
+    addModalBox();
     checkCalendar();
     myFunction();
 
@@ -370,6 +364,71 @@ function dayButtons() {
 
     });
 
+}
+
+function makeDeltagerClickable() {
+    $(".cube").click(function () {
+        //use a class, since your ID gets mangled
+        var clickedTeam = $(this).closest('td').attr('class').split(' ')[0];
+        if ($(this).hasClass('rotate') == true) {
+            $(this).removeClass('rotate');
+            for (var i = 0; i < teamCalendar.length; i++) {
+                if (teamCalendar[i][0] == clickedTeam) {
+                    teamCalendar[i][2].pop(user);
+                    /*deltagerAntal = teamCalendar[i][2].length;*/
+                    localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                    $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
+                }
+            }
+        } else {
+            for (var i = 0; i < teamCalendar.length; i++) {
+                if (teamCalendar[i][0] == clickedTeam) {
+                    if (checkDeltager(i) == false) {
+                        teamCalendar[i][2].splice(0, 0, user);
+                        localStorage.setItem('teamCalendar', JSON.stringify(teamCalendar));
+                        /*deltagerAntal = teamCalendar[i][2].length;*/
+                        $('.' + clickedTeam + ' span').text(teamCalendar[i][2].length);
+                        $(this).addClass('rotate'); //add the class to the clicked element
+                    } else {
+                        alert('du deltager allerede');
+                    }
+                }
+            }
+        }
+    });
+}
+
+function addModalBox() {
+    $('.teamName, .teamTime, .teamDuration, .lokation, .teamTrainer, .deltagerCounter').click(function () {
+        modal.style.display = "block";
+        selectedName = $(this).closest('td').attr('class').split('-')[0];
+        var selectedNameTry = $(this).closest('td').attr('class').split('-');
+        var selectedNameTry1 = '';
+
+        for (var k = 0; k < selectedNameTry.length; k++) {
+
+            if (isNaN(parseInt(selectedNameTry[k].toString())) && selectedNameTry1 === '') {
+                selectedNameTry1 = selectedNameTry[k].toString();
+            } else if (isNaN(parseInt(selectedNameTry[k].toString()))) {
+                selectedNameTry1 = selectedNameTry1 + ' ' + selectedNameTry[k].toString();
+            }
+        }
+        console.log(selectedNameTry1);
+
+
+
+        for (var i = 0; i < teams.length; i++) {
+            for (var j = 0; j < teams[i].length; j++) {
+                if (teams[i][j].teamName == selectedNameTry1) {
+                    var selectedTeam = teams[i][j];
+                }
+            }
+        }
+
+        $('.modal-contentName').html(selectedNameTry1);
+        $('.modal-contentBeskrivelse').html(selectedTeam.teamDescription);
+        $('.modal-trainer').html(selectedTeam.teamTrainer);
+    });
 }
 
 
