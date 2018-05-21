@@ -40,7 +40,7 @@ function loadTeamArray() {
         );
     var fitpump = new TeamObject(
             'Fitpump',
-            '08;30',
+            '08:30',
             '09:00',
             60,
             'Søren',
@@ -52,7 +52,7 @@ function loadTeamArray() {
         );
         var fitpump2 = new TeamObject(
             'Fitpump',
-            '13;00',
+            '13:00',
             '14:00',
             60,
             'Søren',
@@ -64,7 +64,7 @@ function loadTeamArray() {
         );
     var fitWalk = new TeamObject(
             'FitWalk',
-            '13;00',
+            '13:00',
             '14:30',
             90,
             'Katrine',
