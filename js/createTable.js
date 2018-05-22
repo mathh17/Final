@@ -25,59 +25,6 @@ x.addListener(myFunction)
 
 
 function loadTeamArray() {
-    if(localStorage.getItem('newTeam_Data') == null){
-    var spinning = new TeamObject(
-            'Spinning',
-            '10:00',
-            '11:00',
-            60,
-            'Anders',
-            'Salen',
-            10,
-            'Hardcore Cykling!',
-            [0,2,4,5],
-            false
-        );
-    var fitpump = new TeamObject(
-            'Fitpump',
-            '08:30',
-            '09:00',
-            60,
-            'Søren',
-            'Udendørs',
-            20,
-            'Hardcore bodyPump!',
-            [1,3,6],
-            false
-        );
-        var fitpump2 = new TeamObject(
-            'Fitpump',
-            '13:00',
-            '14:00',
-            60,
-            'Søren',
-            'Udendørs',
-            20,
-            'Hardcore bodyPump!',
-            [1,3,6],
-            false
-        );
-    var fitWalk = new TeamObject(
-            'FitWalk',
-            '13:00',
-            '14:30',
-            90,
-            'Katrine',
-            'Salen',
-            10,
-            'Få en god gåtur på løbebåndene',
-            [0,2,4,5],
-            false
-        );
-        var teamData = [spinning,fitpump,fitpump2,fitWalk];
-        localStorage.setItem('newTeam_Data', JSON.stringify(teamData));
-    
-}
 
     var lsTeam = localStorage.getItem('newTeam_Data');
     if (lsTeam != null) {

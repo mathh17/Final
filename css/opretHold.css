@@ -35,7 +35,7 @@ body {
 }
 
 .varighed {
-    /*border: solid black 1px;*/
+    border: solid black 1px;
     background-color: #EDEDDA;
     padding-top: 10px;
     padding-bottom: 20px;
